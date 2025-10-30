@@ -26,7 +26,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="fixed inset-0  h-10 w-full z-[100] ">
+    <div className="fixed inset-0  h-10 w-full z-[100] text-white ">
       <div className='h-5 bg-transparent w-full  backdrop-blur-2xl'></div>
       <div className='m-0 sm:px-6 lg:px-8 ' >
         <nav className="max-w-7xl mx-auto p-4 flex items-center justify-between bg-[#9E9E9E]/10 backdrop-blur-2xl filter brightness-90 rounded-xl ">
