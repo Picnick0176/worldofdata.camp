@@ -43,12 +43,12 @@ export default function Home() {
           </Link>
 
           <div className="flex gap-6 items-center">
-            <Link href="https://www.instagram.com/wodcamp_dsi?igsh=ZzBsdXBqMDIzc3l5" className="flex items-center gap-2 hover:text-pink-500 transition">
+            <Link href="https://www.instagram.com/worldofdata_camp?igsh=ZzBsdXBqMDIzc3l5" className="flex items-center gap-2 hover:text-pink-500 transition">
               <Instagram className="w-5 h-5" />
               : worldofdata_camp
             </Link>
 
-            <Link href="/" className="flex items-center gap-2 hover:text-blue-600 transition">
+            <Link href="https://www.facebook.com/profile.php?id=61582977063425" className="flex items-center gap-2 hover:text-blue-600 transition">
               <Facebook className="w-5 h-5" />
               : world of data camp
 

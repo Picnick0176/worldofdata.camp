@@ -41,7 +41,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row justify-center md:justify-start items-center gap-3 mb-2">
             <p className="font-semibold">ช่องทางการติดต่อ :</p>
             <div className="flex gap-3">
-              <Link href="https://facebook.com" target="_blank">
+              <Link href="https://www.facebook.com/profile.php?id=61582977063425" target="_blank">
                 <Image
                   className="w-7"
                   src="/Facebook.svg"
@@ -50,7 +50,7 @@ export default function Footer() {
                   height={100}
                 />
               </Link>
-              <Link href="https://instagram.com" target="_blank">
+              <Link href="https://www.instagram.com/worldofdata_camp?igsh=ZzBsdXBqMDIzc3l5" target="_blank">
                 <Image
                   className="w-7"
                   src="/Instagram.svg"
@@ -59,7 +59,7 @@ export default function Footer() {
                   height={100}
                 />
               </Link>
-              <Link href="https://Tiktok.com" target="_blank">
+              <Link href="https://www.tiktok.com/@worldofdata.camp?_t=ZS-90y7qlYeTH0&_r=1" target="_blank">
                 <Image
                   className="w-7"
                   src="/Tiktok.png"
