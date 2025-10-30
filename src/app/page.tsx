@@ -27,7 +27,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="w-full  h-full bg-[#060B15]">
+    <div className="w-full  h-full bg-[#060B15] text-white ">
       {/* Home Section */}
       <section
         id="home"
