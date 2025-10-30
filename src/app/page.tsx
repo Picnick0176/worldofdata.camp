@@ -90,7 +90,7 @@ export default function Home() {
               {/* Python */}
               <div className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-56">
                 <Image
-                  src="/python.svg"
+                  src="/python.png"
                   alt="Python"
                   width={40}
                   height={40}
@@ -302,7 +302,7 @@ export default function Home() {
       </section>
 
       <section id='followus' className="flex flex-col items-center justify-center text-center m-8 " >
-        <h1 className="text-2xl flex items-center gap-2 transition mb-3"><Image className="w-10" src="/following.svg" alt="Book Icon" width={100} height={100} />follow us</h1>
+        <h1 className="text-2xl flex items-center gap-2 transition mb-3"><Image className="w-10" src="/following.png" alt="Book Icon" width={100} height={100} />follow us</h1>
         <Follow />
       </section>
 
