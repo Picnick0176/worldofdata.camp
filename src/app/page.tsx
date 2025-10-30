@@ -32,8 +32,8 @@ export default function Home() {
     <div className="w-full">
       <section id="home" className=" bg-cover bg-center h-[700px] w-full flex flex-col items-center justify-center  text-center  h-screen" style={{ backgroundImage: "url('/Group2.svg')" }}>
         <div data-aos="fade-up" className="flex flex-col items-center justify-center  text-center">
-          <h1 className="text-xl font-bold mb-3 sm:text-xl lg:text-4xl">World of Data 2025</h1>
-          <h1 className="text-xl font-bold mb-3 sm:text-xl lg:text-4xl">The Order of Data Wizardry</h1>
+          <h1 className="text-xl font-bold mb-3 sm:text-xl lg:text-4xl text-white">World of Data 2025</h1>
+          <h1 className="text-xl font-bold mb-3 sm:text-xl lg:text-4xl text-white">The Order of Data Wizardry</h1>
 
           <Link
             href="/Register"
@@ -42,13 +42,13 @@ export default function Home() {
             สมัครได้แล้วที่นี้!!!
           </Link>
 
-          <div className="flex gap-6 items-center">
+          <div className="flex gap-6 items-center text-white">
             <Link href="https://www.instagram.com/worldofdata_camp?igsh=ZzBsdXBqMDIzc3l5" className="flex items-center gap-2 hover:text-pink-500 transition">
               <Instagram className="w-5 h-5" />
               : worldofdata_camp
             </Link>
 
-            <Link href="https://www.facebook.com/profile.php?id=61582977063425" className="flex items-center gap-2 hover:text-blue-600 transition">
+            <Link href="https://www.facebook.com/profile.php?id=61582977063425" className="flex items-center gap-2 text-white hover:text-blue-600 transition">
               <Facebook className="w-5 h-5" />
               : world of data camp
 
