@@ -79,7 +79,7 @@ export default function Home() {
           <div className="w-full md:w-1/2 space-y-3 text-left">
             <h1 className="text-[#F7C500] text-2xl font-semibold">World of data 2025</h1>
             <p data-aos="zoom-in-up" className="text-gray-300 leading-relaxed">
-              การกลับมาอย่างยิ่งใหญ่ของหนึ่งในค่ายที่เรียกได้ว่าปังมากที่สุดแห่งปี "ค่าย World Of Data Camp"...
+              การกลับมาอย่างยิ่งใหญ่ของหนึ่งในค่ายที่เรียกได้ว่าปังมากที่สุดแห่งปี "ค่าย World Of Data Camp" ซึ่งในปีนี้เรากลับมาในธีม The Order of Data Wizardry และยังคงเป็น ค่ายที่อัดแน่น ไปด้วยความสนุก สนานและสาระความรู้ในเรื่องของ Data ที่ทั้งจัดหนัก จัดเต็ม และการันตี ความเจ้มจ้ม เอ้ย! เข้มข้น ผ่านกิจกรรม Workshop ต่าง ๆ ที่จะทำให้ทุกคนรู้จัก และเข้าใจถึง ศาสตร์แห่งอนาคต Data Science มากยิ่งขึ้นนั่นเอง แต่ ๆ ๆ ๆ ค่ายนี้ไม่ได้มีแค่ ความรู้และ ความสนุกเพียงเท่านั้น ยังมีการมอบ e-Certificate ให้ทุก ๆ ท่านที่เข้าร่วมงานอีกด้วย
             </p>
 
             <h2 className="text-[#F7C500] text-xl font-semibold pt-4">Coding Language :</h2>
