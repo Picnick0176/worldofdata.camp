@@ -5,13 +5,13 @@ import Follow from "./components/follow";
 import Link from 'next/link'
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Instagram, Facebook, } from "lucide-react";
+import { Instagram, Facebook } from "lucide-react";
 import { useState, useEffect } from "react";
-
 
 export default function Home() {
   const images = ["/poster.png"];
   const [currentImage, setCurrentImage] = useState(0);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
@@ -21,50 +21,53 @@ export default function Home() {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000, // ระยะเวลา animation (ms)
-      once: true, // เล่นครั้งเดียวตอน scroll ผ่าน
+      duration: 1000,
+      once: true,
     });
   }, []);
 
-
-
   return (
     <div className="w-full">
-      <section id="home" className=" bg-cover bg-center h-[700px] w-full flex flex-col items-center justify-center  text-center  h-screen" style={{ backgroundImage: "url('/Group2.svg')" }}>
-        <div data-aos="fade-up" className="flex flex-col items-center justify-center  text-center">
+      {/* Home Section */}
+      <section
+        id="home"
+        className="bg-cover bg-center w-full flex flex-col items-center justify-center text-center min-h-screen"
+        style={{ backgroundImage: "url('/Group2.svg')" }}
+      >
+        <div data-aos="fade-up" className="flex flex-col items-center justify-center text-center">
           <h1 className="text-xl font-bold mb-3 sm:text-xl lg:text-4xl text-white">World of Data 2025</h1>
           <h1 className="text-xl font-bold mb-3 sm:text-xl lg:text-4xl text-white">The Order of Data Wizardry</h1>
 
           <Link
             href="/Register"
-            className=" px-4 py-2 rounded bg-[#F7C500] hover:bg-[#F7C500]/90 mb-4  text-[#ffff] text-xl font-bold mb-3 sm:text-xl lg:text-2xl"
+            className="px-4 py-2 rounded bg-[#F7C500] hover:bg-[#F7C500]/90 mb-4 text-white text-xl font-bold sm:text-xl lg:text-2xl"
           >
             สมัครได้แล้วที่นี้!!!
           </Link>
 
           <div className="flex gap-6 items-center text-white">
             <Link href="https://www.instagram.com/worldofdata_camp?igsh=ZzBsdXBqMDIzc3l5" className="flex items-center gap-2 hover:text-pink-500 transition">
-              <Instagram className="w-5 h-5" />
-              : worldofdata_camp
+              <Instagram className="w-5 h-5" /> : worldofdata_camp
             </Link>
-
-            <Link href="https://www.facebook.com/profile.php?id=61582977063425" className="flex items-center gap-2 text-white hover:text-blue-600 transition">
-              <Facebook className="w-5 h-5" />
-              : world of data camp
-
+            <Link href="https://www.facebook.com/profile.php?id=61582977063425" className="flex items-center gap-2 hover:text-blue-600 transition">
+              <Facebook className="w-5 h-5" /> : world of data camp
             </Link>
           </div>
         </div>
-
       </section>
 
-      <section id="about" className="flex flex-col items-center justify-center text-center  h-screen mt-20 sm:mt-0">
-        <h1 className="text-2xl flex items-center gap-2 transition"><Image className="w-10" src="/bookl.svg" alt="Book Icon" width={100} height={100} />About</h1>
+      {/* About Section */}
+      <section id="about" className="flex flex-col items-center justify-center text-center min-h-screen py-20">
+        <h1 className="text-2xl flex items-center gap-2 transition">
+          <Image className="w-10" src="/bookl.svg" alt="Book Icon" width={100} height={100} />
+          About
+        </h1>
+
         <div className="bg-[#0E1015] text-white p-8 mt-10 rounded-3xl flex flex-col lg:flex-row items-center gap-8 max-w-2xl lg:max-w-6xl mx-auto shadow-xl">
           {/* ซ้าย: รูปภาพ */}
           <div data-aos="fade-right" className="w-full md:w-1/2 rounded-2xl overflow-hidden">
             <Image
-              src="/DSC_0046.JPG" // เปลี่ยน path รูปตามของจริง
+              src="/DSC_0046.JPG"
               alt="World of Data 2025"
               width={800}
               height={600}
@@ -74,35 +77,21 @@ export default function Home() {
 
           {/* ขวา: เนื้อหา */}
           <div className="w-full md:w-1/2 space-y-3 text-left">
-            <h1 className="text-[#F7C500] text-2xl font-semibold">
-              World of data 2025
-            </h1>
+            <h1 className="text-[#F7C500] text-2xl font-semibold">World of data 2025</h1>
             <p data-aos="zoom-in-up" className="text-gray-300 leading-relaxed">
-              การกลับมาอย่างยิ่งใหญ่ของหนึ่งในค่ายที่เรียกได้ว่าปังมากที่สุดแห่งปี   "ค่าย World Of Data Camp" ซึ่งในปีนี้เรากลับมาในธีม The Order of Data Wizardry และยังคงเป็น ค่ายที่อัดแน่น ไปด้วยความสนุก สนานและสาระความรู้ในเรื่องของ Data ที่ทั้งจัดหนัก จัดเต็ม และการันตี ความเจ้มจ้ม เอ้ย! เข้มข้น ผ่านกิจกรรม Workshop ต่าง ๆ ที่จะทำให้ทุกคนรู้จัก และเข้าใจถึง ศาสตร์แห่งอนาคต  Data Science มากยิ่งขึ้นนั่นเอง แต่ ๆ ๆ ๆ ค่ายนี้ไม่ได้มีแค่ ความรู้และ ความสนุกเพียงเท่านั้น ยังมีการมอบ e-Certificate ให้ทุก ๆ ท่านที่เข้าร่วมงานอีกด้วย
+              การกลับมาอย่างยิ่งใหญ่ของหนึ่งในค่ายที่เรียกได้ว่าปังมากที่สุดแห่งปี "ค่าย World Of Data Camp"...
             </p>
 
-            <h2 className="text-[#F7C500] text-xl font-semibold pt-4">
-              Coding Language :
-            </h2>
+            <h2 className="text-[#F7C500] text-xl font-semibold pt-4">Coding Language :</h2>
 
-            {/* กล่องแสดงภาษา */}
-            <div data-aos="fade-up" data-aos-duration="1000"className="flex flex-wrap gap-4">
+            <div data-aos="fade-up" data-aos-duration="1000" className="flex flex-wrap gap-4">
               {/* Python */}
               <div className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-56">
-                <Image
-                  src="/Python.png"
-                  alt="Python"
-                  width={40}
-                  height={40}
-                  className="object-contain"
-                />
+                <Image src="/Python.png" alt="Python" width={40} height={40} className="object-contain" />
                 <div className="w-full">
                   <p className="font-semibold">Python</p>
                   <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
-                    <div
-                      className="bg-[#F7C500] h-2 rounded-full"
-                      style={{ width: "100%" }}
-                    ></div>
+                    <div className="bg-[#F7C500] h-2 rounded-full" style={{ width: "100%" }}></div>
                   </div>
                 </div>
                 <p className="text-sm text-gray-400 ml-2">100%</p>
@@ -110,20 +99,11 @@ export default function Home() {
 
               {/* MySQL */}
               <div className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-56">
-                <Image
-                  src="/mysql.svg"
-                  alt="MySQL"
-                  width={40}
-                  height={40}
-                  className="object-contain"
-                />
+                <Image src="/mysql.svg" alt="MySQL" width={40} height={40} className="object-contain" />
                 <div className="w-full">
                   <p className="font-semibold">MySQL</p>
                   <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
-                    <div
-                      className="bg-[#F7C500] h-2 rounded-full"
-                      style={{ width: "100%" }}
-                    ></div>
+                    <div className="bg-[#F7C500] h-2 rounded-full" style={{ width: "100%" }}></div>
                   </div>
                 </div>
                 <p className="text-sm text-gray-400 ml-2">100%</p>
@@ -131,162 +111,99 @@ export default function Home() {
             </div>
           </div>
         </div>
-
       </section>
 
-<section
-  id="Qualification"
-  className="flex flex-col items-center justify-center text-center m-8"
->
-  <h1 className="text-2xl flex items-center gap-2 transition mb-4">
-    <Image
-      className="w-10"
-      src="/Qualification.svg"
-      alt="Qualification Icon"
-      width={100}
-      height={100}
-    />
-    Qualification
-  </h1>
+      {/* Qualification Section */}
+      <section id="Qualification" className="flex flex-col items-center justify-center text-center py-20">
+        <h1 className="text-2xl flex items-center gap-2 transition mb-4">
+          <Image className="w-10" src="/Qualification.svg" alt="Qualification Icon" width={100} height={100} />
+          Qualification
+        </h1>
 
-  {/* กำหนด justify-center ให้ grid */}
-  <div
-    data-aos="fade-up-right"
-    className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-center"
-  >
-    {/* กล่องที่ 1 */}
-    <div className="bg-[#0E1015] w-full h-40 text-white p-3 rounded-3xl flex justify-center items-center gap-3">
-      <div className="flex rounded-full bg-[#333333] w-20 h-20 items-center justify-center">
-        <Image
-          className="w-10"
-          src="/Student Center.svg"
-          alt="Qualification Icon"
-          width={100}
-          height={100}
-        />
-      </div>
-      <p className="text-xl text-left w-60">
-        กำลังศึกษาอยู่มัธยมปีที่ 4 - 6 หรือเทียบเท่า
-      </p>
-    </div>
+        <div data-aos="fade-up-right" className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-center">
+          {/* กล่องที่ 1 */}
+          <div className="bg-[#0E1015] w-full h-40 text-white p-3 rounded-3xl flex justify-center items-center gap-3">
+            <div className="flex rounded-full bg-[#333333] w-20 h-20 items-center justify-center">
+              <Image className="w-10" src="/Student Center.svg" alt="Qualification Icon" width={100} height={100} />
+            </div>
+            <p className="text-xl text-left w-60">กำลังศึกษาอยู่มัธยมปีที่ 4 - 6 หรือเทียบเท่า</p>
+          </div>
 
-    {/* กล่องที่ 2 */}
-    <div className="bg-[#0E1015] w-full h-40 text-white p-3 rounded-3xl flex justify-center items-center gap-3">
-      <div className="flex rounded-full bg-[#333333] w-20 h-20 items-center justify-center">
-        <Image
-          className="w-10"
-          src="/Childrens Backpack.svg"
-          alt="Qualification Icon"
-          width={100}
-          height={100}
-        />
-      </div>
-      <p className="text-xl text-left w-60">
-        สามารถมาร่วมกิจกรรมได้ในวันที่กำหนด
-      </p>
-    </div>
+          {/* กล่องที่ 2 */}
+          <div className="bg-[#0E1015] w-full h-40 text-white p-3 rounded-3xl flex justify-center items-center gap-3">
+            <div className="flex rounded-full bg-[#333333] w-20 h-20 items-center justify-center">
+              <Image className="w-10" src="/Childrens Backpack.svg" alt="Qualification Icon" width={100} height={100} />
+            </div>
+            <p className="text-xl text-left w-60">สามารถมาร่วมกิจกรรมได้ในวันที่กำหนด</p>
+          </div>
 
-    {/* กล่องสุดท้าย (อยู่ตรงกลางแน่นอน) */}
-    <div
-      data-aos="fade-up"
-      className="bg-[#0E1015] h-40 text-white p-3 rounded-3xl flex justify-center items-center gap-3 sm:col-span-2 mx-auto w-fit"
-    >
-      <div className="flex rounded-full bg-[#333333] w-20 h-20 items-center justify-center">
-        <Image
-          className="w-10"
-          src="/Banknotes.svg"
-          alt="Banknotes Icon"
-          width={100}
-          height={100}
-        />
-      </div>
-      <div className="flex flex-col items-start w-60">
-        <div className="flex items-baseline text-xl text-left">
-          <span>ค่าสมัครเข้าค่าย</span>
-          <span className="text-2xl ml-2 text-[#F7C500]">450 บาท</span>
+          {/* กล่องสุดท้าย */}
+          <div data-aos="fade-up" className="bg-[#0E1015] h-40 text-white p-3 rounded-3xl flex justify-center items-center gap-3 sm:col-span-2 mx-auto w-fit">
+            <div className="flex rounded-full bg-[#333333] w-20 h-20 items-center justify-center">
+              <Image className="w-10" src="/Banknotes.svg" alt="Banknotes Icon" width={100} height={100} />
+            </div>
+            <div className="flex flex-col items-start w-60">
+              <div className="flex items-baseline text-xl text-left">
+                <span>ค่าสมัครเข้าค่าย</span>
+                <span className="text-2xl ml-2 text-[#F7C500]">450 บาท</span>
+              </div>
+              <p className="text-sm text-left mt-2 text-red-500">(ชำระหลังประกาศรายชื่อ)</p>
+            </div>
+          </div>
         </div>
-        <p className="text-sm text-left mt-2 text-red-500">
-          (ชำระหลังประกาศรายชื่อ)
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-
-
-
-      <section
-        id="Activity"
-        className="flex flex-col items-center justify-center text-center m-8 h-screen"
-      >
-        {/* หัวข้อหลัก */}
+      {/* Activity Section */}
+      <section id="Activity" className="flex flex-col items-center justify-center text-center py-20">
         <h1 className="text-2xl flex items-center gap-2 font-semibold mb-6">
-          <Image
-            className="w-8"
-            src="/news.svg"
-            alt="Activity Icon"
-            width={100}
-            height={100}
-          />
+          <Image className="w-8" src="/news.svg" alt="Activity Icon" width={100} height={100} />
           Activity
         </h1>
 
-        {/* กล่องหลัก */}
         <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="bg-[#0E1015] text-white p-10 m-4 rounded-3xl flex flex-col gap-10 max-w-4xl w-full mx-auto shadow-xl">
           {/* Event 1 */}
           <div className="flex items-start gap-4">
             <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2"></div>
             <div className="text-left">
-              <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">
-                7 Nov 2025 - 7 Dec 2025
-              </p>
+              <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">7 Nov 2025 - 7 Dec 2025</p>
               <h2 className="text-2xl font-bold mt-2">เปิดรับสมัคร</h2>
               <p className="text-gray-400 text-sm mt-1">[ ผ่าน Worldofdata.camp ]</p>
-              <p className="mt-2 text-gray-300">
-                วันที่ 7 พฤศจิกายน 2025 -7 ธันวาคม 2025 เวลา 23:59 น.
-              </p>
+              <p className="mt-2 text-gray-300">วันที่ 7 พฤศจิกายน 2025 -7 ธันวาคม 2025 เวลา 23:59 น.</p>
             </div>
           </div>
 
           {/* Event 2 */}
-          <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="flex items-start gap-4">
+          <div className="flex items-start gap-4">
             <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2"></div>
             <div className="text-left">
-              <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">
-                08 Dec 2025
-              </p>
+              <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">08 Dec 2025</p>
               <h2 className="text-2xl font-bold mt-2">ประกาศรายชื่อผู้ผ่านเข้ารอบ 30 คน</h2>
               <p className="text-gray-400 text-sm mt-1">[ Instagram Account, Facebook Fanpage และ Email ตอบกลับ]</p>
-              <p className="mt-2 text-gray-300">
-                 ประกาศผล : วันที่ 8 ธันวาคม 2025 เวลา 10:00 น. ผู้ผ่านเข้ารอบจำนวน 30 คน ผ่านช่องทาง Instagram Account, Facebook Fanpage และ Email ตอบกลับ
-              </p>
+              <p className="mt-2 text-gray-300">ประกาศผล : วันที่ 8 ธันวาคม 2025 เวลา 10:00 น. ผู้ผ่านเข้ารอบจำนวน 30 คน ผ่านช่องทาง Instagram Account, Facebook Fanpage และ Email ตอบกลับ</p>
             </div>
           </div>
 
           {/* Event 3 */}
-          <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="flex items-start gap-4">
+          <div className="flex items-start gap-4">
             <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2"></div>
             <div className="text-left">
-              <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">
-                09 Jan 2026 - 11 Jan 2026 
-              </p>
+              <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">09 Jan 2026 - 11 Jan 2026</p>
               <h2 className="text-2xl font-bold mt-2">กิจกรรมค่าย</h2>
               <p className="text-gray-400 text-sm mt-1">[ Thammasert University ]</p>
-              <p className="mt-2 text-gray-300">
-                วันที่ 9 - 11 มกราคม 2026 (3 วัน 2 คืน) 📍ค้างคืนที่มหาวิทยาลัยธรรมศาสตร์ รังสิต
-              </p>
+              <p className="mt-2 text-gray-300">วันที่ 9 - 11 มกราคม 2026 (3 วัน 2 คืน) 📍ค้างคืนที่มหาวิทยาลัยธรรมศาสตร์ รังสิต</p>
             </div>
           </div>
         </div>
       </section>
 
-
-
+      {/* Gallery */}
       <Gallery />
 
-      <section id="News" className="flex flex-col items-center justify-center text-center mt-20 " >
-        <h1 className="text-2xl flex items-center gap-2 transition"><Image className="w-10" src="/news.svg" alt="Book Icon" width={100} height={100} />News</h1>
+      {/* News Section */}
+      <section id="News" className="flex flex-col items-center justify-center text-center py-20">
+        <h1 className="text-2xl flex items-center gap-2 transition">
+          <Image className="w-10" src="/news.svg" alt="Book Icon" width={100} height={100} />News
+        </h1>
         <div data-aos="flip-down" className="bg-[#0E1015] text-white p-8 m-4 rounded-3xl flex justify-center items-center">
           <div className="rounded-2xl overflow-hidden">
             <Image
@@ -294,22 +211,19 @@ export default function Home() {
               alt="World of Data 2025"
               width={500}
               height={500}
-              className="object-cover w-[400px] h-[300px] sm:w-[550px] sm:h-[750px]  lg:w-[600px] lg:h-[750px] transition-opacity duration-500 ease-in-out"
+              className="object-cover w-[400px] h-[300px] sm:w-[550px] sm:h-[750px] lg:w-[600px] lg:h-[750px] transition-opacity duration-500 ease-in-out"
             />
           </div>
         </div>
-
       </section>
 
-      <section id='followus' className="flex flex-col items-center justify-center text-center m-8 " >
-        <h1 className="text-2xl flex items-center gap-2 transition mb-3"><Image className="w-10" src="/Following.png" alt="Book Icon" width={100} height={100} />follow us</h1>
+      {/* Follow Section */}
+      <section id='followus' className="flex flex-col items-center justify-center text-center py-20">
+        <h1 className="text-2xl flex items-center gap-2 transition mb-3">
+          <Image className="w-10" src="/Following.png" alt="Book Icon" width={100} height={100} />follow us
+        </h1>
         <Follow />
       </section>
-
-
-
-
-
     </div>
   );
 }
