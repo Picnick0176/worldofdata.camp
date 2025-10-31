@@ -215,7 +215,7 @@ export default function Home() {
               <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">7 Nov 2025 - 7 Dec 2025</p>
               <h2 className="text-2xl font-bold mt-2">เปิดรับสมัคร</h2>
               <p className="text-gray-400 text-sm mt-1">[ ผ่าน Worldofdata.camp ]</p>
-              <p className="mt-2 text-gray-300">วันที่ 7 พฤศจิกายน 2025 -7 ธันวาคม 2025 เวลา 23:59 น.</p>
+              <p className="mt-2 text-gray-300">วันที่ 7 พฤศจิกายน 2025 - 7 ธันวาคม 2025 เวลา 23:59 น.</p>
             </div>
           </div>
 
@@ -258,7 +258,7 @@ export default function Home() {
               alt="World of Data 2025"
               width={500}
               height={500}
-              className="object-cover w-[400px] h-[300px] sm:w-[550px] sm:h-[750px] lg:w-[600px] lg:h-[750px] transition-opacity duration-500 ease-in-out"
+              className="object-cover w-[400px] h-[450px] sm:w-[550px] sm:h-[750px] lg:w-[600px] lg:h-[750px] transition-opacity duration-500 ease-in-out"
             />
           </div>
         </div>
