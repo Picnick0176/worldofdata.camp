@@ -1,14 +1,20 @@
 "use client";
 import { useState, useEffect } from "react";
-import Link from 'next/link'
-import { usePathname } from 'next/navigation';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const pathname = usePathname();
 
   useEffect(() => {
+    if (pathname !== "/") {
+      // ถ้าไม่ใช่หน้าแรก ให้หยุดการ observe และรีเซ็ต section
+      setActiveSection(pathname === "/Register" ? "Register" : "none");
+      return;
+    }
+
     const sections = document.querySelectorAll("section[id]");
     const observer = new IntersectionObserver(
       (entries) => {
@@ -23,13 +29,13 @@ export default function Navbar() {
 
     sections.forEach((section) => observer.observe(section));
     return () => sections.forEach((section) => observer.unobserve(section));
-  }, []);
+  }, [pathname]);
 
   return (
-    <div className="fixed inset-0  h-10 w-full z-[100] text-white ">
-      <div className='h-5 bg-transparent w-full  backdrop-blur-2xl'></div>
-      <div className='m-0 sm:px-6 lg:px-8 ' >
-        <nav className="max-w-7xl mx-auto p-4 flex items-center justify-between bg-[#9E9E9E]/10 backdrop-blur-2xl filter brightness-90 rounded-xl ">
+    <div className="fixed inset-0 h-10 w-full z-[1000000] text-white">
+      <div className="h-5 bg-transparent w-full backdrop-blur-2xl"></div>
+      <div className="m-0 sm:px-6 lg:px-8">
+        <nav className="max-w-7xl mx-auto p-4 flex items-center justify-between bg-[#9E9E9E]/10 backdrop-blur-2xl filter brightness-90 rounded-xl">
           <div className="flex items-center">
             <Link href="/" className="text-xl font-semibold text-[#F7C400]">
               World of Data 2025
@@ -40,39 +46,42 @@ export default function Navbar() {
           <div className="hidden md:flex space-x-6 items-center">
             <Link
               href="/"
-              className={`px-4 py-2 rounded transition ${pathname === "/" && activeSection === "home"
-                  ? "bg-[#F7C500]  font-semibold"
+              className={`px-4 py-2 rounded transition ${
+                pathname === "/" && activeSection === "home"
+                  ? "bg-[#F7C500] font-semibold"
                   : "hover:underline"
-                }`}
+              }`}
             >
               Home
             </Link>
             <Link
               href="/#about"
-              className={`px-4 py-2 rounded transition ${activeSection === "about"
-                  ? "bg-[#F7C500]  font-semibold"
+              className={`px-4 py-2 rounded transition ${
+                pathname === "/" && activeSection === "about"
+                  ? "bg-[#F7C500] font-semibold"
                   : "hover:underline"
-                }`}
+              }`}
             >
               About
             </Link>
             <Link
               href="/#Activity"
-              className={`px-4 py-2 rounded transition ${activeSection === "Activity"
-                  ? "bg-[#F7C500]  font-semibold"
+              className={`px-4 py-2 rounded transition ${
+                pathname === "/" && activeSection === "Activity"
+                  ? "bg-[#F7C500] font-semibold"
                   : "hover:underline"
-                }`}
+              }`}
             >
               Activity
             </Link>
-
             <Link
               href="/Register"
               target="_blank"
-              className={`px-4 py-2 rounded transition ${activeSection === "Register" || pathname === "/Register"
-                  ? "bg-[#F7C500]  font-semibold"
+              className={`px-4 py-2 rounded transition ${
+                pathname === "/Register"
+                  ? "bg-[#F7C500] font-semibold"
                   : "hover:underline"
-                }`}
+              }`}
             >
               Register
             </Link>
@@ -114,17 +123,44 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {open && (
-          <div className="md:hidden px-2 pb-4 bg-[#9E9E9E]/10 backdrop-blur-2xl filter brightness-90 rounded-xl 
-                  flex flex-col items-center justify-center text-center space-y-3 py-6">
-            <Link href="/" className="block px-3 py-2 rounded-md ">
+          <div className="md:hidden px-2 pb-4 bg-[#9E9E9E]/10 backdrop-blur-2xl filter brightness-90 rounded-xl flex flex-col items-center justify-center text-center space-y-3 py-6">
+            <Link
+              href="/"
+              className={`block mt-2 px-3 py-2 rounded-md transition ${
+                pathname === "/" && activeSection === "home"
+                  ? "bg-[#F7C500] font-semibold"
+                  : "bg-[#9E9E9E]/15 hover:underline"
+              }`}
+            >
               Home
             </Link>
             <Link
-              href="/Register"
-              className={`block mt-2 px-3 py-2 rounded-md transition ${pathname === "/Register"
-                  ? "bg-[#F7C500]  font-semibold"
+              href="/#about"
+              className={`block mt-2 px-3 py-2 rounded-md transition ${
+                pathname === "/" && activeSection === "about"
+                  ? "bg-[#F7C500] font-semibold"
                   : "bg-[#9E9E9E]/15 hover:underline"
-                }`}
+              }`}
+            >
+              About
+            </Link>
+            <Link
+              href="/#Activity"
+              className={`block mt-2 px-3 py-2 rounded-md transition ${
+                pathname === "/" && activeSection === "Activity"
+                  ? "bg-[#F7C500] font-semibold"
+                  : "bg-[#9E9E9E]/15 hover:underline"
+              }`}
+            >
+              Activity
+            </Link>
+            <Link
+              href="/Register"
+              className={`block mt-2 px-3 py-2 rounded-md transition ${
+                pathname === "/Register"
+                  ? "bg-[#F7C500] font-semibold"
+                  : "bg-[#9E9E9E]/15 hover:underline"
+              }`}
             >
               Register
             </Link>
@@ -132,5 +168,5 @@ export default function Navbar() {
         )}
       </div>
     </div>
-  )
+  );
 }

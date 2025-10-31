@@ -4,9 +4,9 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#262626]/50 backdrop-blur-2xl text-white w-full">
+    <footer className="bg-[#262626]/90 backdrop-blur-2xl text-white w-full z-100" style={{ zIndex: 9999, position: 'relative'}}>
       {/* ส่วนบนของ Footer */}
-      <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
+      <div className="max-w-6xl mx-auto  px-6 py-10 flex flex-col md:flex-row justify-between items-center md:items-start gap-8" style={{ zIndex: 9999, position: 'relative'}}>
         
         {/* ฝั่งซ้าย */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
@@ -70,6 +70,7 @@ export default function Footer() {
               </Link>
             </div>
           </div>
+          <p className="font-semibold">หากพบปัญหาติดต่อ : 098-241-9055 (ลีโอ)</p>
         </div>
 
         {/* ฝั่งขวา */}

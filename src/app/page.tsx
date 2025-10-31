@@ -2,13 +2,46 @@
 import Image from "next/image";
 import Gallery from "./components/Gallery";
 import Follow from "./components/follow";
+import { FloatingElement } from "./components/FloatingElement";
 import Link from 'next/link'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Instagram, Facebook } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
+
 
 export default function Home() {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    // พยายามเล่นเพลงอัตโนมัติเมื่อ component โหลด
+    const playAudio = async () => {
+      try {
+        if (audioRef.current) {
+          audioRef.current.volume = 0.15; // ตั้งเสียงไว้ที่ 30%
+          await audioRef.current.play();
+        }
+      } catch (error) {
+        // Browser อาจบล็อก autoplay - ให้เล่นเมื่อ user มีการคลิกหน้าจอ
+        const handleUserInteraction = async () => {
+          try {
+            if (audioRef.current) {
+              await audioRef.current.play();
+              document.removeEventListener('click', handleUserInteraction);
+            }
+          } catch (err) {
+            console.log('Cannot play audio:', err);
+          }
+        };
+        document.addEventListener('click', handleUserInteraction);
+      }
+    };
+
+    playAudio();
+  }, []);
+
+
+
   const images = ["/poster.png"];
   const [currentImage, setCurrentImage] = useState(0);
 
@@ -26,44 +59,68 @@ export default function Home() {
     });
   }, []);
 
+
   return (
-    <div className="w-full  h-full bg-[#060B15] text-white ">
+    <div className="w-full  h-full bg-[#060B15] text-white  ">
+      <audio
+        ref={audioRef}
+        loop
+        autoPlay
+      >
+        <source src="/TheRoomofRequirements.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
       {/* Home Section */}
       <section
         id="home"
-        className="bg-cover bg-center w-full flex flex-col items-center justify-center text-center min-h-screen"
+        className="bg-cover bg-center w-full flex flex-col  items-center justify-center text-center min-h-screen z-[100]"
         style={{ backgroundImage: "url('/Group2.svg')" }}
       >
-        <div data-aos="fade-up" className="flex flex-col items-center justify-center text-center">
-          <h1 className="text-xl font-bold mb-3 sm:text-xl lg:text-4xl text-white">World of Data 2025</h1>
+        <div data-aos="fade-up" className="flex flex-col items-center justify-center text-center z-100">
+          <FloatingElement delay={0} duration={3}>
+            <h1 className="text-xl font-bold mb-3 sm:text-xl lg:text-4xl text-white">World of Data 2025</h1>
+          </FloatingElement>
           <h1 className="text-xl font-bold mb-3 sm:text-xl lg:text-4xl text-white">The Order of Data Wizardry</h1>
 
           <Link
             href="/Register"
-            className="px-4 py-2 rounded bg-[#F7C500] hover:bg-[#F7C500]/90 mb-4 text-white text-xl font-bold sm:text-xl lg:text-2xl"
+            className="px-4 py-2 rounded bg-[#F7C500] hover:bg-[#F7C500]/90 mb-5 mt-5 text-white text-xl font-bold sm:text-xl lg:text-2xl"
           >
-            สมัครได้แล้วที่นี้!!!
+            สมัครได้แล้วที่นี่!!!
           </Link>
 
-          <div className="flex gap-6 items-center text-white">
+          <div className="flex gap-3 items-center text-white">
             <Link href="https://www.instagram.com/worldofdata_camp?igsh=ZzBsdXBqMDIzc3l5" className="flex items-center gap-2 hover:text-pink-500 transition">
-              <Instagram className="w-5 h-5" /> : worldofdata_camp
+              <Instagram className="w-5 h-5" />
+            </Link>
+            <Link href="https://www.tiktok.com/@worldofdata.camp?_t=ZS-90y7qlYeTH0&_r=1" target="_blank">
+              <Image
+                className="w-5 flex items-center gap-2 hover:text-blue-600 transition"
+                src="/Tiktok.png"
+                alt="Tiktok Icon"
+                width={100}
+                height={100}
+              />
             </Link>
             <Link href="https://www.facebook.com/profile.php?id=61582977063425" className="flex items-center gap-2 hover:text-blue-600 transition">
-              <Facebook className="w-5 h-5" /> : world of data camp
+              <Facebook className="w-5 h-5" /> : worldofdata.camp
             </Link>
+
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="flex flex-col items-center justify-center text-center min-h-screen py-20">
+
+      <section id="about" className="flex flex-col items-center justify-center text-center min-h-screen py-20 z-100" style={{ zIndex: 9999, position: 'relative'}}>
         <h1 className="text-2xl flex items-center gap-2 transition">
           <Image className="w-10" src="/bookl.svg" alt="Book Icon" width={100} height={100} />
           About
         </h1>
-
-        <div className="bg-[#0E1015] text-white p-8 mt-10 rounded-3xl flex flex-col lg:flex-row items-center gap-8 max-w-2xl lg:max-w-6xl mx-auto shadow-xl">
+          <FloatingElement delay={0} duration={5}>
+           
+          
+        <div className="bg-[#0E1015] text-white p-8 mt-10 rounded-3xl flex flex-col lg:flex-row items-center gap-8 max-w-2xl lg:max-w-6xl mx-auto shadow-xl ">
           {/* ซ้าย: รูปภาพ */}
           <div data-aos="fade-right" className="w-full md:w-1/2 rounded-2xl overflow-hidden">
             <Image
@@ -79,7 +136,7 @@ export default function Home() {
           <div className="w-full md:w-1/2 space-y-3 text-left">
             <h1 className="text-[#F7C500] text-2xl font-semibold">World of data 2025</h1>
             <p data-aos="zoom-in-up" className="text-gray-300 leading-relaxed">
-              การกลับมาอย่างยิ่งใหญ่ของหนึ่งในค่ายที่เรียกได้ว่าปังมากที่สุดแห่งปี "ค่าย World Of Data Camp" ซึ่งในปีนี้เรากลับมาในธีม The Order of Data Wizardry และยังคงเป็น ค่ายที่อัดแน่น ไปด้วยความสนุก สนานและสาระความรู้ในเรื่องของ Data ที่ทั้งจัดหนัก จัดเต็ม และการันตี ความเจ้มจ้ม เอ้ย! เข้มข้น ผ่านกิจกรรม Workshop ต่าง ๆ ที่จะทำให้ทุกคนรู้จัก และเข้าใจถึง ศาสตร์แห่งอนาคต Data Science มากยิ่งขึ้นนั่นเอง แต่ ๆ ๆ ๆ ค่ายนี้ไม่ได้มีแค่ ความรู้และ ความสนุกเพียงเท่านั้น ยังมีการมอบ e-Certificate ให้ทุก ๆ ท่านที่เข้าร่วมงานอีกด้วย
+              การกลับมาอย่างยิ่งใหญ่ของหนึ่งในค่ายที่เรียกได้ว่าปังมากที่สุดแห่งปี "ค่าย World Of Data Camp" ซึ่งในปีนี้เรากลับมาในธีม The Order of Data Wizardry และยังคงเป็น ค่ายที่อัดแน่น ไปด้วยความสนุกสนานและสาระความรู้ในเรื่องของ Data ที่ทั้งจัดหนัก จัดเต็ม และการันตี ความเจ้มจ้ม เอ้ย! เข้มข้น ผ่านกิจกรรม Workshop ต่าง ๆ ที่จะทำให้ทุกคนรู้จัก และเข้าใจถึง ศาสตร์แห่งอนาคต Data Science มากยิ่งขึ้นนั่นเอง แต่ ๆ ๆ ๆ ค่ายนี้ไม่ได้มีแค่ ความรู้และ ความสนุกเพียงเท่านั้น ยังมีการมอบ e-Certificate ให้ทุก ๆ ท่านที่เข้าร่วมงานอีกด้วย
             </p>
 
             <h2 className="text-[#F7C500] text-xl font-semibold pt-4">Coding Language :</h2>
@@ -97,24 +154,14 @@ export default function Home() {
                 <p className="text-sm text-gray-400 ml-2">100%</p>
               </div>
 
-              {/* MySQL */}
-              <div className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-56">
-                <Image src="/mysql.svg" alt="MySQL" width={40} height={40} className="object-contain" />
-                <div className="w-full">
-                  <p className="font-semibold">MySQL</p>
-                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
-                    <div className="bg-[#F7C500] h-2 rounded-full" style={{ width: "100%" }}></div>
-                  </div>
-                </div>
-                <p className="text-sm text-gray-400 ml-2">100%</p>
-              </div>
             </div>
           </div>
         </div>
+        </FloatingElement>
       </section>
 
       {/* Qualification Section */}
-      <section id="Qualification" className="flex flex-col items-center justify-center text-center py-20">
+      <section id="Qualification" className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative'}}>
         <h1 className="text-2xl flex items-center gap-2 transition mb-4">
           <Image className="w-10" src="/Qualification.svg" alt="Qualification Icon" width={100} height={100} />
           Qualification
@@ -154,7 +201,7 @@ export default function Home() {
       </section>
 
       {/* Activity Section */}
-      <section id="Activity" className="flex flex-col items-center justify-center text-center py-20">
+      <section id="Activity" className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative'}}>
         <h1 className="text-2xl flex items-center gap-2 font-semibold mb-6">
           <Image className="w-8" src="/news.svg" alt="Activity Icon" width={100} height={100} />
           Activity
@@ -200,7 +247,7 @@ export default function Home() {
       <Gallery />
 
       {/* News Section */}
-      <section id="News" className="flex flex-col items-center justify-center text-center py-20">
+      <section id="News" className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative'}}>
         <h1 className="text-2xl flex items-center gap-2 transition">
           <Image className="w-10" src="/news.svg" alt="Book Icon" width={100} height={100} />News
         </h1>
@@ -218,7 +265,7 @@ export default function Home() {
       </section>
 
       {/* Follow Section */}
-      <section id='followus' className="flex flex-col items-center justify-center text-center py-20">
+      <section id='followus' className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative'}}>
         <h1 className="text-2xl flex items-center gap-2 transition mb-3">
           <Image className="w-10" src="/Following.png" alt="Book Icon" width={100} height={100} />follow us
         </h1>

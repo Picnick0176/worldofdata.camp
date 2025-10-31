@@ -29,7 +29,7 @@ export default function Gallery() {
   }, []);
 
   return (
-    <section id="Gallery" className="flex flex-col items-center justify-center text-center m-8">
+    <section id="Gallery" className="flex flex-col items-center justify-center text-center m-8" style={{ zIndex: 9999, position: 'relative'}}>
       <div className="bg-[#0E1015] w-full h-80 sm:h-150 max-w-4xl rounded-3xl flex flex-col items-center justify-center text-center p-4">
         <h1 className="text-2xl flex items-center gap-2 mb-4">
           <Image className="w-10" src="/Frame.svg" alt="Qualification Icon" width={40} height={40} />

@@ -1,8 +1,12 @@
+
 import type { Metadata } from "next";
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navber";
 import Footer from "./components/Footer";
+import {FogEffect} from "./components/FogEffect";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,6 +64,14 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+         <FogEffect 
+        particleCount={60}  // จำนวนอนุภาค
+        color1="6, 11, 21" // สีม่วงอ่อน
+        color2="15, 27, 53"  // สีม่วงเข้ม
+        opacity={0.4}         // ความโปร่งแสงของหมอก
+        speed={1}             // ความเร็วของการเคลื่อนไหว
+        zIndex={1}           // ลำดับชั้น
+      />
       </body>
     </html>
   );

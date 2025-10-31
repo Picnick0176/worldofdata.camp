@@ -26,3 +26,86 @@ body {
   font-weight: bold;
   font-style: normal;
 }
+
+@layer utilities {
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(2deg);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      text-shadow: 0 0 10px rgba(139, 92, 246, 0.5),
+                   0 0 20px rgba(139, 92, 246, 0.3);
+    }
+    50% {
+      text-shadow: 0 0 20px rgba(139, 92, 246, 0.8),
+                   0 0 40px rgba(139, 92, 246, 0.5),
+                   0 0 60px rgba(139, 92, 246, 0.3);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+
+  .animate-twinkle {
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+}
+
+
+@layer utilities {
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  
+  @keyframes glow {
+    0%, 100% {
+      text-shadow: 0 0 10px rgba(139, 92, 246, 0.5),
+                   0 0 20px rgba(139, 92, 246, 0.3);
+    }
+    50% {
+      text-shadow: 0 0 20px rgba(139, 92, 246, 0.8),
+                   0 0 40px rgba(139, 92, 246, 0.5);
+    }
+  }
+
+  .animate-float { animation: float 3s ease-in-out infinite; }
+  .animate-twinkle { animation: twinkle 2s ease-in-out infinite; }
+  .animate-glow { animation: glow 2s ease-in-out infinite; }
+}
