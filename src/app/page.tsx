@@ -88,7 +88,7 @@ export default function Home() {
           </Link>
 
           <div className="flex gap-3 items-center text-white">
-            <Link href="https://www.instagram.com/worldofdata_camp?igsh=ZzBsdXBqMDIzc3l5" target="_blank" className="flex items-center gap-2 hover:text-pink-500 transition">
+            <Link href="https://www.instagram.com/worldofdata.camp?igsh=ZzBsdXBqMDIzc3l5" target="_blank" className="flex items-center gap-2 hover:text-pink-500 transition">
               <Instagram className="w-5 h-5" />
             </Link>
             <Link href="https://www.tiktok.com/@worldofdata.camp?_t=ZS-90y7qlYeTH0&_r=1" target="_blank">

@@ -50,7 +50,7 @@ export default function Footer() {
                   height={100}
                 />
               </Link>
-              <Link href="https://www.instagram.com/worldofdata_camp?igsh=ZzBsdXBqMDIzc3l5" target="_blank">
+              <Link href="https://www.instagram.com/worldofdata.camp?igsh=ZzBsdXBqMDIzc3l5" target="_blank">
                 <Image
                   className="w-7"
                   src="/Instagram.svg"
