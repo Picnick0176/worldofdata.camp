@@ -77,9 +77,7 @@ export default function Home() {
         style={{ backgroundImage: "url('/Group2.svg')" }}
       >
         <div data-aos="fade-up" className="flex flex-col items-center justify-center text-center z-100">
-          <FloatingElement delay={0} duration={3}>
-            <h1 className="text-xl font-bold mb-3 sm:text-xl lg:text-4xl text-white">World of Data 2025</h1>
-          </FloatingElement>
+          <h1 className="text-xl font-bold mb-3 sm:text-xl lg:text-4xl text-white">World of Data 2025</h1>
           <h1 className="text-xl font-bold mb-3 sm:text-xl lg:text-4xl text-white">The Order of Data Wizardry</h1>
 
           <Link
@@ -117,7 +115,7 @@ export default function Home() {
           <Image className="w-10" src="/bookl.svg" alt="Book Icon" width={100} height={100} />
           About
         </h1>
-          <FloatingElement delay={0} duration={5}>
+
            
           
         <div className="bg-[#0E1015] text-white p-8 mt-10 rounded-3xl flex flex-col lg:flex-row items-center gap-8 max-w-2xl lg:max-w-6xl mx-auto shadow-xl ">
@@ -157,7 +155,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        </FloatingElement>
+
       </section>
 
       {/* Qualification Section */}
