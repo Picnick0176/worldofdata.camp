@@ -42,7 +42,7 @@ export default function Home() {
 
 
 
-  const images = ["/poster.png"];
+  const images = ["/News.png"];
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
