@@ -28,7 +28,7 @@ export const FogEffect: React.FC<FogEffectProps> = ({
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // capture non-null references to satisfy TypeScript for closures/classes
+
     const c = canvas;
     const context = ctx;
 
@@ -101,7 +101,7 @@ export const FogEffect: React.FC<FogEffectProps> = ({
     };
 
     window.addEventListener('resize', handleResize);
-    animate(); // ✅ เริ่มอนิเมชัน
+    animate(); 
 
     return () => {
       window.removeEventListener('resize', handleResize);

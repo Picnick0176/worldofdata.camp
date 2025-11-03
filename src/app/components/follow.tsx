@@ -2,13 +2,13 @@ import { useEffect } from "react";
 
 export default function SocialEmbed() {
   useEffect(() => {
-    // โหลด Instagram script
+ 
     const igScript = document.createElement("script");
     igScript.src = "https://www.instagram.com/embed.js";
     igScript.async = true;
     document.body.appendChild(igScript);
 
-    // โหลด Facebook SDK
+
     const fbScript = document.createElement("script");
     fbScript.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0";
     fbScript.async = true;
@@ -17,7 +17,7 @@ export default function SocialEmbed() {
 
   return (
     <div className="flex flex-col md:flex-col lg:flex-row gap-8 justify-center items-start w-full px-4 m-auto">
-      {/* Facebook Page */}
+
       <div className="w-full md:w-[500px]">
         <div
           className="fb-page"
@@ -32,7 +32,7 @@ export default function SocialEmbed() {
         ></div>
       </div>
 
-      {/* Instagram Post */}
+
       <div className="w-full md:w-[500px]">
         <blockquote
           className="instagram-media"

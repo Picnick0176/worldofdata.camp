@@ -5,10 +5,10 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-[#262626]/90 backdrop-blur-2xl text-white w-full z-100" style={{ zIndex: 9999, position: 'relative'}}>
-      {/* ส่วนบนของ Footer */}
+
       <div className="max-w-6xl mx-auto  px-6 py-10 flex flex-col md:flex-row justify-between items-center md:items-start gap-8" style={{ zIndex: 9999, position: 'relative'}}>
         
-        {/* ฝั่งซ้าย */}
+
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <div className="flex flex-wrap justify-center md:justify-start gap-4 mb-3">
             <Image
@@ -37,7 +37,7 @@ export default function Footer() {
             World of Data 2025
           </h2>
 
-          {/* รวมข้อความกับรูปในบรรทัดเดียวกัน */}
+
           <div className="flex flex-col sm:flex-row justify-center md:justify-start items-center gap-3 mb-2">
             <p className="font-semibold">ช่องทางการติดต่อ :</p>
             <div className="flex gap-3">
@@ -90,7 +90,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ส่วนล่าง */}
+
       <div className="bg-[#262626] py-4 text-center text-sm text-gray-300">
         © 2025 - PICNICK DEV
       </div>

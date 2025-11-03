@@ -14,15 +14,15 @@ export default function Home() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // พยายามเล่นเพลงอัตโนมัติเมื่อ component โหลด
+
     const playAudio = async () => {
       try {
         if (audioRef.current) {
-          audioRef.current.volume = 0.15; // ตั้งเสียงไว้ที่ 30%
+          audioRef.current.volume = 0.15; 
           await audioRef.current.play();
         }
       } catch (error) {
-        // Browser อาจบล็อก autoplay - ให้เล่นเมื่อ user มีการคลิกหน้าจอ
+
         const handleUserInteraction = async () => {
           try {
             if (audioRef.current) {
@@ -70,7 +70,7 @@ export default function Home() {
         <source src="/TheRoomofRequirements.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
-      {/* Home Section */}
+
       <section
         id="home"
         className="bg-cover bg-center w-full flex flex-col  items-center justify-center text-center min-h-screen z-[100]"
@@ -108,7 +108,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
+
 
       <section id="about" className="flex flex-col items-center justify-center text-center min-h-screen py-20 z-100" style={{ zIndex: 9999, position: 'relative'}}>
         <h1 className="text-2xl flex items-center gap-2 transition">
@@ -119,7 +119,7 @@ export default function Home() {
            
           
         <div className="bg-[#0E1015] text-white p-8 mt-10 rounded-3xl flex flex-col lg:flex-row items-center gap-8 max-w-2xl lg:max-w-6xl mx-auto shadow-xl ">
-          {/* ซ้าย: รูปภาพ */}
+
           <div data-aos="fade-right" className="w-full md:w-1/2 rounded-2xl overflow-hidden">
             <Image
               src="/DSC_0046.JPG"
@@ -130,7 +130,6 @@ export default function Home() {
             />
           </div>
 
-          {/* ขวา: เนื้อหา */}
           <div className="w-full md:w-1/2 space-y-3 text-left">
             <h1 className="text-[#F7C500] text-2xl font-semibold">World of data 2025</h1>
             <p data-aos="zoom-in-up" className="text-gray-300 leading-relaxed">
@@ -140,7 +139,7 @@ export default function Home() {
             <h2 className="text-[#F7C500] text-xl font-semibold pt-4">Coding Language :</h2>
 
             <div data-aos="fade-up" data-aos-duration="1000" className="flex flex-wrap gap-4">
-              {/* Python */}
+
               <div className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-56">
                 <Image src="/Python.png" alt="Python" width={40} height={40} className="object-contain" />
                 <div className="w-full">
@@ -166,7 +165,6 @@ export default function Home() {
         </h1>
 
         <div data-aos="fade-up-right" className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-center">
-          {/* กล่องที่ 1 */}
           <div className="bg-[#0E1015] w-full h-40 text-white p-3 rounded-3xl flex justify-center items-center gap-3">
             <div className="flex rounded-full bg-[#333333] w-20 h-20 items-center justify-center">
               <Image className="w-10" src="/Student Center.svg" alt="Qualification Icon" width={100} height={100} />
@@ -174,7 +172,6 @@ export default function Home() {
             <p className="text-xl text-left w-60">กำลังศึกษาอยู่มัธยมปีที่ 4 - 6 หรือเทียบเท่า</p>
           </div>
 
-          {/* กล่องที่ 2 */}
           <div className="bg-[#0E1015] w-full h-40 text-white p-3 rounded-3xl flex justify-center items-center gap-3">
             <div className="flex rounded-full bg-[#333333] w-20 h-20 items-center justify-center">
               <Image className="w-10" src="/Childrens Backpack.svg" alt="Qualification Icon" width={100} height={100} />
@@ -182,7 +179,6 @@ export default function Home() {
             <p className="text-xl text-left w-60">สามารถมาร่วมกิจกรรมได้ในวันที่กำหนด</p>
           </div>
 
-          {/* กล่องสุดท้าย */}
           <div data-aos="fade-up" className="bg-[#0E1015] h-40 text-white p-3 rounded-3xl flex justify-center items-center gap-3 sm:col-span-2 mx-auto w-fit">
             <div className="flex rounded-full bg-[#333333] w-20 h-20 items-center justify-center">
               <Image className="w-10" src="/Banknotes.svg" alt="Banknotes Icon" width={100} height={100} />
@@ -206,18 +202,18 @@ export default function Home() {
         </h1>
 
         <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="bg-[#0E1015] text-white p-10 m-4 rounded-3xl flex flex-col gap-10 max-w-4xl w-full mx-auto shadow-xl">
-          {/* Event 1 */}
+
           <div className="flex items-start gap-4">
             <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2"></div>
             <div className="text-left">
               <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">7 Nov 2025 - 7 Dec 2025</p>
               <h2 className="text-2xl font-bold mt-2">เปิดรับสมัคร</h2>
-              <p className="text-gray-400 text-sm mt-1">[ ผ่าน Worldofdata.camp ]</p>
+              <p className="text-gray-400 text-sm mt-1">[ ผ่าน worldofdata.camp ]</p>
               <p className="mt-2 text-gray-300">วันที่ 7 พฤศจิกายน 2025 - 7 ธันวาคม 2025 เวลา 23:59 น.</p>
             </div>
           </div>
 
-          {/* Event 2 */}
+
           <div className="flex items-start gap-4">
             <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2"></div>
             <div className="text-left">
@@ -228,23 +224,22 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Event 3 */}
+
           <div className="flex items-start gap-4">
             <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2"></div>
             <div className="text-left">
               <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">09 Jan 2026 - 11 Jan 2026</p>
               <h2 className="text-2xl font-bold mt-2">กิจกรรมค่าย</h2>
-              <p className="text-gray-400 text-sm mt-1">[ Thammasert University ]</p>
+              <p className="text-gray-400 text-sm mt-1">[ Thammaseat University ]</p>
               <p className="mt-2 text-gray-300">วันที่ 9 - 11 มกราคม 2026 (3 วัน 2 คืน) 📍ค้างคืนที่มหาวิทยาลัยธรรมศาสตร์ รังสิต</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Gallery */}
       <Gallery />
 
-      {/* News Section */}
+
       <section id="News" className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative'}}>
         <h1 className="text-2xl flex items-center gap-2 transition">
           <Image className="w-10" src="/news.svg" alt="Book Icon" width={100} height={100} />News
@@ -262,7 +257,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Follow Section */}
+
       <section id='followus' className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative'}}>
         <h1 className="text-2xl flex items-center gap-2 transition mb-3">
           <Image className="w-10" src="/Following.png" alt="Book Icon" width={100} height={100} />follow us
