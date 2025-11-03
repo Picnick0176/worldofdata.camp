@@ -77,31 +77,25 @@ export default function Home() {
         style={{ backgroundImage: "url('/Group2.svg')" }}
       >
         <div data-aos="fade-up" className="flex flex-col items-center justify-center text-center z-100">
-          <h1 className="text-xl font-bold mb-3 sm:text-xl lg:text-4xl text-white">World of Data 2025</h1>
-          <h1 className="text-xl font-bold mb-3 sm:text-xl lg:text-4xl text-white">The Order of Data Wizardry</h1>
+          <h1 className="text-xl font-bold mb-10 sm:text-xl lg:text-5xl text-white">World of Data Camp 2025</h1>
+          <h1 className="text-xl font-bold mb-10 sm:text-xl lg:text-7xl text-[#F7C500]">The Order of Data Wizardry</h1>
 
-          <Link
-            href="/Register"
-            className="px-4 py-2 rounded bg-[#F7C500] hover:bg-[#F7C500]/90 mb-5 mt-5 text-white text-xl font-bold sm:text-xl lg:text-2xl"
-          >
-            สมัครได้แล้วที่นี่!!!
-          </Link>
 
           <div className="flex gap-3 items-center text-white">
             <Link href="https://www.instagram.com/worldofdata.camp?igsh=ZzBsdXBqMDIzc3l5" target="_blank" className="flex items-center gap-2 hover:text-pink-500 transition">
-              <Instagram className="w-5 h-5" />
+              <Instagram className="w-8" />
             </Link>
             <Link href="https://www.tiktok.com/@worldofdata.camp?_t=ZS-90y7qlYeTH0&_r=1" target="_blank">
               <Image
-                className="w-5 flex items-center gap-2 hover:text-blue-600 transition"
+                className="w-6 flex items-center gap-2 hover:text-blue-600 transition"
                 src="/Tiktok.png"
                 alt="Tiktok Icon"
                 width={100}
                 height={100}
               />
             </Link>
-            <Link href="https://www.facebook.com/profile.php?id=61582977063425" target="_blank" className="flex items-center gap-2 hover:text-blue-600 transition">
-              <Facebook className="w-5 h-5" /> : worldofdata.camp
+            <Link href="https://www.facebook.com/profile.php?id=61582977063425" target="_blank" className="flex items-center gap-2 text-xl hover:text-blue-600 transition">
+              <Facebook className="w-8" /> : worldofdata.camp
             </Link>
 
           </div>
@@ -263,7 +257,15 @@ export default function Home() {
           <Image className="w-10" src="/Following.png" alt="Book Icon" width={100} height={100} />follow us
         </h1>
         <Follow />
+        <Link
+            href="/Register"
+            className="p-6 rounded-xl bg-[#F7C500] hover:bg-[#F7C500]/90 mb-5 mt-20 text-white text-xl font-bold sm:text-xl lg:text-5xl"
+          >
+            สมัครได้แล้วที่นี่!!!
+          </Link>
       </section>
+
+      
     </div>
   );
 }

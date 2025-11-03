@@ -38,7 +38,7 @@ export default function Navbar() {
         <nav className="max-w-7xl mx-auto p-4 flex items-center justify-between bg-[#9E9E9E]/10 backdrop-blur-2xl filter brightness-90 rounded-xl">
           <div className="flex items-center">
             <Link href="/" className="text-xl font-semibold text-[#F7C400]">
-              World of Data 2025
+              World of Data Camp 2025
             </Link>
           </div>
 
@@ -48,7 +48,7 @@ export default function Navbar() {
               href="/"
               className={`px-4 py-2 rounded transition ${
                 pathname === "/" && activeSection === "home"
-                  ? "bg-[#F7C500] font-semibold"
+                  ? "bg-[#F7C500]/70 font-semibold"
                   : "hover:underline"
               }`}
             >
@@ -58,7 +58,7 @@ export default function Navbar() {
               href="/#about"
               className={`px-4 py-2 rounded transition ${
                 pathname === "/" && activeSection === "about"
-                  ? "bg-[#F7C500] font-semibold"
+                  ? "bg-[#F7C500]/70 font-semibold"
                   : "hover:underline"
               }`}
             >
@@ -68,7 +68,7 @@ export default function Navbar() {
               href="/#Activity"
               className={`px-4 py-2 rounded transition ${
                 pathname === "/" && activeSection === "Activity"
-                  ? "bg-[#F7C500] font-semibold"
+                  ? "bg-[#F7C500]/70 font-semibold"
                   : "hover:underline"
               }`}
             >
@@ -79,7 +79,7 @@ export default function Navbar() {
               target="_blank"
               className={`px-4 py-2 rounded transition ${
                 pathname === "/Register"
-                  ? "bg-[#F7C500] font-semibold"
+                  ? "bg-[#F7C500]/70 font-semibold"
                   : "hover:underline"
               }`}
             >
@@ -128,7 +128,7 @@ export default function Navbar() {
               href="/"
               className={`block mt-2 px-3 py-2 rounded-md transition ${
                 pathname === "/" && activeSection === "home"
-                  ? "bg-[#F7C500] font-semibold"
+                  ? "bg-[#F7C500]/70 font-semibold"
                   : "bg-[#9E9E9E]/15 hover:underline"
               }`}
             >
@@ -138,7 +138,7 @@ export default function Navbar() {
               href="/#about"
               className={`block mt-2 px-3 py-2 rounded-md transition ${
                 pathname === "/" && activeSection === "about"
-                  ? "bg-[#F7C500] font-semibold"
+                  ? "bg-[#F7C500]/70 font-semibold"
                   : "bg-[#9E9E9E]/15 hover:underline"
               }`}
             >
@@ -148,7 +148,7 @@ export default function Navbar() {
               href="/#Activity"
               className={`block mt-2 px-3 py-2 rounded-md transition ${
                 pathname === "/" && activeSection === "Activity"
-                  ? "bg-[#F7C500] font-semibold"
+                  ? "bg-[#F7C500]/70 font-semibold"
                   : "bg-[#9E9E9E]/15 hover:underline"
               }`}
             >
@@ -158,7 +158,7 @@ export default function Navbar() {
               href="/Register"
               className={`block mt-2 px-3 py-2 rounded-md transition ${
                 pathname === "/Register"
-                  ? "bg-[#F7C500] font-semibold"
+                  ? "bg-[#F7C500]/70 font-semibold"
                   : "bg-[#9E9E9E]/15 hover:underline"
               }`}
             >
