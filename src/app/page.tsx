@@ -12,33 +12,41 @@ import { useState, useRef, useEffect } from "react";
 
 export default function Home() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [muted, setMuted] = useState(false);
 
   useEffect(() => {
-
     const playAudio = async () => {
       try {
         if (audioRef.current) {
-          audioRef.current.volume = 0.15; 
+          audioRef.current.volume = 0.15;
           await audioRef.current.play();
         }
       } catch (error) {
-
         const handleUserInteraction = async () => {
           try {
             if (audioRef.current) {
               await audioRef.current.play();
-              document.removeEventListener('click', handleUserInteraction);
+              document.removeEventListener("click", handleUserInteraction);
             }
           } catch (err) {
-            console.log('Cannot play audio:', err);
+            console.log("Cannot play audio:", err);
           }
         };
-        document.addEventListener('click', handleUserInteraction);
+        document.addEventListener("click", handleUserInteraction);
       }
     };
-
     playAudio();
   }, []);
+  const [buttonText, setButtonText] = useState("🔇 ปิดเพลง");
+
+  const toggleMute = () => {
+    if (audioRef.current) {
+      const newMuted = !audioRef.current.muted;
+      audioRef.current.muted = newMuted;
+      setMuted(newMuted);
+      setButtonText(newMuted ? "🔈 เปิดเสียง" : "🔇 ปิดเพลง");
+    }
+  };
 
 
 
@@ -58,7 +66,9 @@ export default function Home() {
       once: true,
     });
   }, []);
-
+  const close_audio = () => {
+    alert('d');
+  };
 
   return (
     <div className="w-full  h-full bg-[#060B15] text-white  ">
@@ -73,12 +83,12 @@ export default function Home() {
 
       <section
         id="home"
-        className="bg-cover bg-center w-full flex flex-col  items-center justify-center text-center min-h-screen z-[100]"
+        className="bg-cover bg-center w-full flex flex-col  items-center justify-center text-center min-h-screen z-[100] "
         style={{ backgroundImage: "url('/Group2.svg')" }}
       >
         <div data-aos="fade-up" className="flex flex-col items-center justify-center text-center z-100">
-          <h1 className="text-xl font-bold mb-10 sm:text-xl lg:text-5xl text-white">World of Data Camp 2025</h1>
-          <h1 className="text-xl font-bold mb-10 sm:text-xl lg:text-7xl text-[#F7C500]">The Order of Data Wizardry</h1>
+          <h1 className="text-xl font-bold mb-3 lg:mb-10 sm:text-xl lg:text-5xl text-white">World of Data Camp 2025</h1>
+          <h1 className="text-3xl font-bold mb-3 lg:mb-10 sm:text-xl lg:text-7xl text-[#F7C500]">The Order of Data Wizardry</h1>
 
 
           <div className="flex gap-3 items-center text-white">
@@ -99,19 +109,27 @@ export default function Home() {
             </Link>
 
           </div>
+
+
         </div>
+                  <button
+            onClick={toggleMute}
+            className="absolute bottom-6 right-6 bg-black/40 text-white p-3 rounded-3xl backdrop-blur-md hover:bg-black/60 transition-all"
+          >
+          {buttonText}
+          </button>
       </section>
 
 
 
-      <section id="about" className="flex flex-col items-center justify-center text-center min-h-screen py-20 z-100" style={{ zIndex: 9999, position: 'relative'}}>
+      <section id="about" className="flex flex-col items-center justify-center text-center min-h-screen py-20 z-100" style={{ zIndex: 9999, position: 'relative' }}>
         <h1 className="text-2xl flex items-center gap-2 transition">
           <Image className="w-10" src="/bookl.svg" alt="Book Icon" width={100} height={100} />
           About
         </h1>
 
-           
-          
+
+
         <div className="bg-[#0E1015] text-white p-8 mt-10 rounded-3xl flex flex-col lg:flex-row items-center gap-8 max-w-2xl lg:max-w-6xl mx-auto shadow-xl ">
 
           <div data-aos="fade-right" className="w-full md:w-1/2 rounded-2xl overflow-hidden">
@@ -152,7 +170,7 @@ export default function Home() {
       </section>
 
       {/* Qualification Section */}
-      <section id="Qualification" className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative'}}>
+      <section id="Qualification" className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative' }}>
         <h1 className="text-2xl flex items-center gap-2 transition mb-4">
           <Image className="w-10" src="/Qualification.svg" alt="Qualification Icon" width={100} height={100} />
           Qualification
@@ -189,7 +207,7 @@ export default function Home() {
       </section>
 
       {/* Activity Section */}
-      <section id="Activity" className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative'}}>
+      <section id="Activity" className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative' }}>
         <h1 className="text-2xl flex items-center gap-2 font-semibold mb-6">
           <Image className="w-8" src="/news.svg" alt="Activity Icon" width={100} height={100} />
           Activity
@@ -198,7 +216,8 @@ export default function Home() {
         <div data-aos="fade-up" data-aos-anchor-placement="center-bottom" className="bg-[#0E1015] text-white p-10 m-4 rounded-3xl flex flex-col gap-10 max-w-4xl w-full mx-auto shadow-xl">
 
           <div className="flex items-start gap-4">
-            <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2"></div>
+            <div className="w-3 aspect-square bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+
             <div className="text-left">
               <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">7 Nov 2025 - 7 Dec 2025</p>
               <h2 className="text-2xl font-bold mt-2">เปิดรับสมัคร</h2>
@@ -209,7 +228,8 @@ export default function Home() {
 
 
           <div className="flex items-start gap-4">
-            <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2"></div>
+            <div className="w-3 aspect-square bg-yellow-400/30 rounded-full mt-2 flex-shrink-0"></div>
+
             <div className="text-left">
               <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">08 Dec 2025</p>
               <h2 className="text-2xl font-bold mt-2">ประกาศรายชื่อผู้ผ่านเข้ารอบ 30 คน</h2>
@@ -220,7 +240,8 @@ export default function Home() {
 
 
           <div className="flex items-start gap-4">
-            <div className="w-3 h-3 bg-yellow-400 rounded-full mt-2"></div>
+            <div className="w-3 aspect-square bg-yellow-400/30 rounded-full mt-2 flex-shrink-0"></div>
+
             <div className="text-left">
               <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">09 Jan 2026 - 11 Jan 2026</p>
               <h2 className="text-2xl font-bold mt-2">กิจกรรมค่าย</h2>
@@ -234,7 +255,7 @@ export default function Home() {
       <Gallery />
 
 
-      <section id="News" className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative'}}>
+      <section id="News" className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative' }}>
         <h1 className="text-2xl flex items-center gap-2 transition">
           <Image className="w-10" src="/news.svg" alt="Book Icon" width={100} height={100} />News
         </h1>
@@ -252,20 +273,20 @@ export default function Home() {
       </section>
 
 
-      <section id='followus' className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative'}}>
+      <section id='followus' className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative' }}>
         <h1 className="text-2xl flex items-center gap-2 transition mb-3">
           <Image className="w-10" src="/Following.png" alt="Book Icon" width={100} height={100} />follow us
         </h1>
         <Follow />
         <Link
-            href="/Register"
-            className="p-6 rounded-xl bg-[#F7C500] hover:bg-[#F7C500]/90 mb-5 mt-20 text-white text-xl font-bold sm:text-xl lg:text-5xl"
-          >
-            สมัครได้แล้วที่นี่!!!
-          </Link>
+          href="/Register"
+          className="p-6 rounded-xl bg-[#F7C500] hover:bg-[#F7C500]/90 mb-5 mt-20 text-white text-xl font-bold sm:text-xl lg:text-5xl"
+        >
+          สมัครได้แล้วที่นี่!!!
+        </Link>
       </section>
 
-      
+
     </div>
   );
 }
