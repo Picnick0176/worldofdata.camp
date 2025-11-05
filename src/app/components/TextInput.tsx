@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 interface TextInputProps {
@@ -10,9 +10,9 @@ interface TextInputProps {
   required?: boolean;
   className?: string;
   text: string;
-  imageSrc?: string; // รูป (optional)
-  showImage?: boolean; // เปิด/ปิดรูป
-  imageAlt?: string; // คำอธิบายรูป
+  imageSrc?: string;
+  showImage?: boolean;
+  imageAlt?: string;
 }
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -27,21 +27,52 @@ const TextInput: React.FC<TextInputProps> = ({
   showImage = false,
   imageAlt = "icon",
 }) => {
+  const [isOpen, setIsOpen] = useState(false); // <-- state เปิด/ปิดรูปใหญ่
+
   return (
     <div className="w-full bg-white/10 p-5 rounded-2xl backdrop-blur-2xl border border-gray-400 mb-5">
-      <div className="flex flex-col  gap-3 w-full">
-        <p className="text-gray-200 ">{text}</p>
+      <div className="flex flex-col gap-3 w-full">
+        <p className="text-gray-200">{text}</p>
+
         {showImage && imageSrc && (
-        <div className="w-full h-24 lg:h-50 md:h-50 relative overflow-hidden rounded-xl lg:rounded-2xl">
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            fill
-            className="object-cover"
-          />
-        </div>
+          <>
+            {/* รูปขนาดปกติ */}
+            <div
+              className="w-full h-24 lg:h-50 md:h-50 relative overflow-hidden rounded-xl lg:rounded-2xl cursor-pointer"
+              onClick={() => setIsOpen(true)} // คลิกแล้วเปิดรูปใหญ่
+            >
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+
+            {/* Modal แสดงรูปใหญ่ */}
+            {isOpen && (
+              <div
+                className="fixed inset-0 bg-black/80 flex justify-center items-center z-50"
+                onClick={() => setIsOpen(false)} // คลิกพื้นหลังเพื่อปิด
+              >
+                <div className="relative w-[90vw] max-w-3xl h-[80vh]">
+                  <Image
+                    src={imageSrc}
+                    alt={imageAlt}
+                    fill
+                    className="object-contain rounded-lg"
+                  />
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="absolute top-3 right-3 bg-black/60 text-white px-3 py-1 rounded-lg hover:bg-black/80"
+                  >
+                    ✕ ปิด
+                  </button>
+                </div>
+              </div>
+            )}
+          </>
         )}
-        
       </div>
 
       <input

@@ -42,6 +42,7 @@ export default function Register() {
   });
   const [checked, setChecked] = useState(false);
 
+
   const handleChange2 = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
     setChecked(isChecked);
@@ -50,6 +51,15 @@ export default function Register() {
       PDPA: isChecked ? "รับทราบและยอมรับ" : "ไม่ยอมรับเงื่อนไข", // ✅ เก็บค่าลง formData
     }));
   };
+
+const nextpageform = () => {
+    if (checked) {
+      setShowRegisterForm(true);
+    } else {
+      alert("กรุณายอมรับ PDPA");
+    }
+  };
+
 
   const [file1, setFile1] = useState<File | undefined>(undefined);
   const [file2, setFile2] = useState<File | undefined>(undefined);
@@ -64,28 +74,64 @@ export default function Register() {
     }));
   };
 
-  // const validateForm = () => {
-  //   if (!formData.Name || !formData.Nickname) {
-  //     setError("กรุณากรอกชื่อและนามสกุล");
-  //     return false;
-  //   }
-  //   if (!formData.email || !formData.phone) {
-  //     setError("กรุณากรอกอีเมลและเบอร์โทรศัพท์");
-  //     return false;
-  //   }
-  //   if (!formData.school || !formData.level) {
-  //     setError("กรุณากรอกข้อมูลการศึกษา");
-  //     return false;
-  //   }
+  const validateForm = () => {
+    if (!formData.Name || !formData.Nickname) {
+      setError("กรุณากรอกชื่อและนามสกุล");
+      return false;
+    }
+    if (!formData.email || !formData.phone) {
+      setError("กรุณากรอกอีเมลและเบอร์โทรศัพท์");
+      return false;
+    }
+    if (!formData.email || !formData.phone) {
+      setError("กรุณากรอกอีเมลและเบอร์โทรศัพท์");
+      return false;
+    }
+    if (!formData.school || !formData.level) {
+      setError("กรุณากรอกข้อมูลการศึกษา");
+      return false;
+    }
 
-    
+    if (!formData.address) {
+      setError("กรุณากรอกข้อมูลที่อยู่");
+      return false;
+    }
+    if (!formData.Instagram || !formData.LineID) {
+      setError("กรุณากรอกInstagramและLineID");
+      return false;
+    }
 
-  //   if (!file1 || !file2) {
-  //     setError("กรุณาอัปโหลดเอกสารทั้งสองไฟล์");
-  //     return false;
-  //   }
-  //   return true;
-  // };
+    if (!formData.gender) {
+      setError("กรุณากรอกคำนำหน้าชื่อ");
+      return false;
+    }
+
+    if (!formData.dob) {
+      setError("กรุณากรอกวันเดือนปีเกิด");
+      return false;
+    }
+    if (!formData.News) {
+      setError("กรุณากรอกช่องทราบข่าวสาว");
+      return false;
+    }
+    if (!formData.school || !formData.level) {
+      setError("กรุณากรอกข้อมูลโรงเรียนให้ครบ");
+      return false;
+    }
+
+    if (!formData.Computer || !formData.question1 || !formData.question2 || !formData.question3 || !formData.question4 || !formData.question5 || !formData.question6 || !formData.question7|| !formData.question8|| !formData.question9|| !formData.question10|| !formData.question11|| !formData.question12|| !formData.question13|| !formData.question14|| !formData.question15 ) {
+      setError("กรูณาตอบคำถามคัดเข้าค่าย");
+      return false;
+    }
+
+
+
+    // if (!file1 || !file2) {
+    //   setError("กรุณาอัปโหลดเอกสารทั้งสองไฟล์");
+    //   return false;
+    // }
+    // return true;
+  };
 
   // Function to convert file to base64
   const fileToBase64 = (file: File): Promise<string> => {
@@ -105,9 +151,9 @@ export default function Register() {
     e.preventDefault();
     setError("");
 
-    // if (!validateForm()) {
-    //   return;
-    // }
+    if (!validateForm()) {
+      return;
+    }
 
     setIsSubmitting(true);
 
@@ -225,7 +271,7 @@ export default function Register() {
           </div>
            <div className="w-full flex justify-center mt-6">
               <button
-                onClick={() => {setShowRegisterForm(true);}}
+                onClick={nextpageform}
                 className="px-8 py-3 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Go to Form
@@ -405,7 +451,7 @@ export default function Register() {
 
               <br />
               <br />
-              <h1 className="text-center text-2xl font-bold mb-8">กรอกข้อมูลลงทะเบียนเข้าค่าย</h1>
+              <h1 className="text-center text-2xl font-bold mb-8">คำถามคัดเข้าค่าย</h1>
               <div className="w-full bg-white/10 p-5 rounded-2xl backdrop-blur-2xl border border-gray-400 mb-5">
                 <div className="flex flex-col  gap-3 w-full">
                   <p className="text-gray-200 ">สามารถนำ Laptop มาร่วมค่ายได้</p>
