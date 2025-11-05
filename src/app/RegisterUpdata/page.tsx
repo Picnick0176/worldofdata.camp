@@ -8,6 +8,7 @@ export default function Register() {
   const [formData, setFormData] = useState({
     Name: "",
     Nickname: "",
+    lastname:"",
     gender: "",
     dob: "",
     email: "",
@@ -46,7 +47,7 @@ export default function Register() {
     setChecked(isChecked);
     setFormData((prev) => ({
       ...prev,
-      PDPA: isChecked ? "ยอมรับเงื่อนไข" : "ไม่ยอมรับเงื่อนไข", // ✅ เก็บค่าลง formData
+      PDPA: isChecked ? "รับทราบและยอมรับ" : "ไม่ยอมรับเงื่อนไข", // ✅ เก็บค่าลง formData
     }));
   };
 
@@ -76,6 +77,9 @@ export default function Register() {
   //     setError("กรุณากรอกข้อมูลการศึกษา");
   //     return false;
   //   }
+
+    
+
   //   if (!file1 || !file2) {
   //     setError("กรุณาอัปโหลดเอกสารทั้งสองไฟล์");
   //     return false;
@@ -98,7 +102,6 @@ export default function Register() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    alert(formData.PDPA)
     e.preventDefault();
     setError("");
 
@@ -114,7 +117,7 @@ export default function Register() {
       const file2Base64 = file2 ? await fileToBase64(file2) : '';
 
       // Google Apps Script URL
-      const googleScriptUrl = "https://script.google.com/macros/s/AKfycbwSrTQGfdb7OM650EeiIlONzwvTMzJxP3d-EFCBND7el0wxkE2s6hnz0-Nz9IFE0vzY/exec";
+      const googleScriptUrl = "https://script.google.com/macros/s/AKfycbySwzrWs6QYxPEanjjHHzgdXN9nixCp2KJ7ReDwLrZFK__7gnQ92hicLWaRWiBuEutJ/exec";
 
       // Create form data with all fields
       const formDataToSend = new FormData();
@@ -153,6 +156,7 @@ export default function Register() {
       setFormData({
         Name: "",
         Nickname: "",
+        lastname:"",
         gender: "",
         dob: "",
         email: "",
@@ -250,12 +254,20 @@ export default function Register() {
 
             <div>
               <p className="font-semibold mb-3 text-lg">ข้อมูลส่วนตัว</p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <input
                   name="Name"
                   value={formData.Name}
-                  placeholder="ชื่อ - นามสกุล"
-                  className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition md:col-span-2"
+                  placeholder="ชื่อ"
+                  className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition "
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  name="lastname"
+                  value={formData.lastname}
+                  placeholder="นามสกุล"
+                  className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition "
                   onChange={handleChange}
                   required
                 />
@@ -263,7 +275,7 @@ export default function Register() {
                   name="Nickname"
                   value={formData.Nickname}
                   placeholder="ชื่อเล่น"
-                  className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition"
+                  className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition md:col-span-2"
                   onChange={handleChange}
                   required
                 />
@@ -280,8 +292,8 @@ export default function Register() {
                   <option value="">คำนำหน้า</option>
                   <option value="นาย">นาย</option>
                   <option value="นางสาว">นางสาว</option>
-                  <option value="ดช">ดช</option>
-                  <option value="ดญ">ดญ</option>
+                  <option value="ดช">เด็กชาย</option>
+                  <option value="ดญ">เด็กหญิง</option>
                 </select>
 
 
@@ -363,6 +375,31 @@ export default function Register() {
                   <option value="โรงเรียนที่ศึกษาอยู่">Thammasat Open House 2025</option>
                   <option value="โรงเรียนที่ศึกษาอยู่">CAMPHUB</option>
                   <option value="อื่นๆ">อื่นๆ</option>
+                </select>
+              </div>
+
+
+                           <p className="font-semibold mb-3 text-lg">ข้อมูลด้านการศึกษา</p>
+              <div className="grid md:grid-cols-3 gap-4 mb-4">
+                <input
+                  name="school"
+                  value={formData.school}
+                  placeholder="ชื่อโรงเรียน"
+                  className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition col-span-2"
+                  onChange={handleChange}
+                  required
+                />
+                <select
+                  name="level"
+                  value={formData.level}
+                  className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition"
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="">ระดับชั้น</option>
+                  <option value="ม.4">ม.4</option>
+                  <option value="ม.5">ม.5</option>
+                  <option value="ม.6">ม.6</option>
                 </select>
               </div>
 

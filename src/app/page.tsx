@@ -132,7 +132,7 @@ export default function Home() {
 
         <div className="bg-[#0E1015] text-white p-8 mt-10 rounded-3xl flex flex-col lg:flex-row items-center gap-8 max-w-2xl lg:max-w-6xl mx-auto shadow-xl ">
 
-          <div data-aos="fade-right" className="w-full md:w-1/2 rounded-2xl overflow-hidden">
+          <div data-aos="fade-right" className="w-full  md:w-1/2 rounded-2xl overflow-hidden">
             <Image
               src="/DSC_0046.JPG"
               alt="World of Data 2025"
@@ -143,15 +143,16 @@ export default function Home() {
           </div>
 
           <div className="w-full md:w-1/2 space-y-3 text-left">
-            <h1 className="text-[#F7C500] text-2xl font-semibold">World of data 2025</h1>
+            <h1 className="text-[#F7C500] text-2xl font-semibold">World of Data Camp 2025</h1>
             <p data-aos="zoom-in-up" className="text-gray-300 leading-relaxed">
               การกลับมาอย่างยิ่งใหญ่ของหนึ่งในค่ายที่ได้รับกระแสตอบรับอย่างดีเยี่ยมตลอดมา “ค่าย World of Data Camp” ซึ่งในปีนี้ได้จัดขึ้นภายใต้ธีม “The Order of Data Wizardry” โดยยังคงมุ่งเน้นการเป็นค่ายที่อัดแน่นด้วยทั้ง สาระ ความรู้ด้าน Data และกิจกรรมเชิงปฏิบัติ (Workshop) ที่มีความเข้มข้นและหลากหลาย เพื่อเสริมสร้างความเข้าใจเกี่ยวกับศาสตร์แห่งอนาคตอย่าง Data Science ให้มากยิ่งขึ้น
               <br />
               <br />
               นอกจากนี้ ทางค่ายยังมอบทั้ง ประสบการณ์การเรียนรู้ที่สนุกสนาน ควบคู่กับองค์ความรู้ที่เป็นประโยชน์ รวมถึงมีการมอบ ประกาศนียบัตรอิเล็กทรอนิกส์ (e-Certificate) ให้แก่ผู้เข้าร่วมทุกท่านด้วย
             </p>
+            <br />
 
-            <h2 className="text-[#F7C500] text-xl font-semibold pt-4">Coding Language :</h2>
+            {/* <h2 className="text-[#F7C500] text-xl font-semibold pt-4">Acquired Skills :</h2>
 
             <div data-aos="fade-up" data-aos-duration="1000" className="flex flex-wrap gap-4">
 
@@ -166,7 +167,29 @@ export default function Home() {
                 <p className="text-sm text-gray-400 ml-2">100%</p>
               </div>
 
-            </div>
+              <div className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-56">
+                <Image src="/Python.png" alt="Python" width={40} height={40} className="object-contain" />
+                <div className="w-full">
+                  <p className="font-semibold">Python</p>
+                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
+                    <div className="bg-[#F7C500] h-2 rounded-full" style={{ width: "100%" }}></div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-400 ml-2">100%</p>
+              </div>
+
+              <div className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-56">
+                <Image src="/Python.png" alt="Python" width={40} height={40} className="object-contain" />
+                <div className="w-full">
+                  <p className="font-semibold">Python</p>
+                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
+                    <div className="bg-[#F7C500] h-2 rounded-full" style={{ width: "100%" }}></div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-400 ml-2">100%</p>
+              </div>
+
+            </div> */}
           </div>
         </div>
 
