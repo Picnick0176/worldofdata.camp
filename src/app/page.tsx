@@ -158,7 +158,7 @@ export default function Home() {
           <Image className="w-10" src="/bookl.svg" alt="Book Icon" width={100} height={100} />
           Acquired Skills
         </h1>
-            <div data-aos="fade-up" data-aos-duration="1000" className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div data-aos="fade-up" data-aos-duration="1000" className="grid grid-cols-1 sm:grid-cols-2 gap-10">
 
               <div data-aos="fade-down" className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-90">
                 <Image src="/Python.png" alt="Python" width={100} height={100} className="object-contain" />
@@ -216,7 +216,7 @@ export default function Home() {
           Qualification
         </h1>
 
-        <div data-aos="fade-up-right" className="grid grid-cols-1 sm:grid-cols-2 gap-4 justify-center">
+        <div data-aos="fade-up-right" className="grid grid-cols-1 sm:grid-cols-2 gap-10 justify-center">
           <div className="bg-[#0E1015] w-full h-40 text-white p-3 rounded-3xl flex justify-center items-center gap-3">
             <div className="flex rounded-full bg-[#333333] w-20 h-20 items-center justify-center">
               <Image className="w-10" src="/Student Center.svg" alt="Qualification Icon" width={100} height={100} />
@@ -231,9 +231,9 @@ export default function Home() {
             <p className="text-xl text-left w-60">สามารถมาร่วมกิจกรรมได้ในวันที่กำหนด</p>
           </div>
 
-          <div data-aos="fade-up" className="bg-[#0E1015] h-40 text-white p-3 rounded-3xl flex justify-center items-center gap-3 sm:col-span-2 mx-auto w-fit">
+          <div className="bg-[#0E1015] w-full h-40 text-white p-3 rounded-3xl flex justify-center items-center gap-3">
             <div className="flex rounded-full bg-[#333333] w-20 h-20 items-center justify-center">
-              <Image className="w-10" src="/Banknotes.svg" alt="Banknotes Icon" width={100} height={100} />
+              <Image className="w-10" src="/Banknotes.svg" alt="Qualification Icon" width={100} height={100} />
             </div>
             <div className="flex flex-col items-start w-60">
               <div className="flex items-baseline text-xl text-left">
@@ -243,6 +243,17 @@ export default function Home() {
               <p className="text-sm text-left mt-2 text-red-500">(ชำระหลังประกาศรายชื่อ)</p>
             </div>
           </div>
+
+          <div className="bg-[#0E1015] w-full h-40 text-white p-3 rounded-3xl flex justify-center items-center gap-3">
+            <div className="flex rounded-full bg-[#333333] w-20 h-20 items-center justify-center">
+              <Image className="w-10" src="/Childrens Backpack.svg" alt="Qualification Icon" width={100} height={100} />
+            </div>
+            <p className="text-xl text-left w-60">สามารถมาร่วมกิจกรรมได้ในวันที่กำหนด</p>
+          </div>
+
+
+
+          
         </div>
       </section>
 
