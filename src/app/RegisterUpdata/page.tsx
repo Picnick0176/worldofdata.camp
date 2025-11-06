@@ -189,7 +189,7 @@ const nextpageform = () => {
       const file2Base64 = file2 ? await fileToBase64(file2) : '';
 
       // Google Apps Script URL
-      const googleScriptUrl = "https://script.google.com/macros/s/AKfycbyhkr8Ib7m0KGCBZdItt0R9lYPv1e1JjhL_Weqzw_bLY3B7BWhHzTQ3ZhLSYo60Mo9q/exec";
+      const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzuKwU-jLXUwKsTduMWJ-23DB9beHLSwqsDxu0MVSTNwAD12ucXxVBwDb_yuG_BhqOX/exec";
 
       // Create form data with all fields
       const formDataToSend = new FormData();
