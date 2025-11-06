@@ -135,3 +135,8 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #8888885e #f1f1f100;
 }
+
+
+html {
+  scroll-behavior: smooth;
+}

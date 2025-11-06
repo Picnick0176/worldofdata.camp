@@ -151,49 +151,63 @@ export default function Home() {
               นอกจากนี้ ทางค่ายยังมอบทั้ง ประสบการณ์การเรียนรู้ที่สนุกสนาน ควบคู่กับองค์ความรู้ที่เป็นประโยชน์ รวมถึงมีการมอบ ประกาศนียบัตรอิเล็กทรอนิกส์ (e-Certificate) ให้แก่ผู้เข้าร่วมทุกท่านด้วย
             </p>
             <br />
-
-            {/* <h2 className="text-[#F7C500] text-xl font-semibold pt-4">Acquired Skills :</h2>
-
-            <div data-aos="fade-up" data-aos-duration="1000" className="flex flex-wrap gap-4">
-
-              <div className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-56">
-                <Image src="/Python.png" alt="Python" width={40} height={40} className="object-contain" />
-                <div className="w-full">
-                  <p className="font-semibold">Python</p>
-                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
-                    <div className="bg-[#F7C500] h-2 rounded-full" style={{ width: "100%" }}></div>
-                  </div>
-                </div>
-                <p className="text-sm text-gray-400 ml-2">100%</p>
-              </div>
-
-              <div className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-56">
-                <Image src="/Python.png" alt="Python" width={40} height={40} className="object-contain" />
-                <div className="w-full">
-                  <p className="font-semibold">Python</p>
-                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
-                    <div className="bg-[#F7C500] h-2 rounded-full" style={{ width: "100%" }}></div>
-                  </div>
-                </div>
-                <p className="text-sm text-gray-400 ml-2">100%</p>
-              </div>
-
-              <div className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-56">
-                <Image src="/Python.png" alt="Python" width={40} height={40} className="object-contain" />
-                <div className="w-full">
-                  <p className="font-semibold">Python</p>
-                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
-                    <div className="bg-[#F7C500] h-2 rounded-full" style={{ width: "100%" }}></div>
-                  </div>
-                </div>
-                <p className="text-sm text-gray-400 ml-2">100%</p>
-              </div>
-
-            </div> */}
           </div>
         </div>
+      <div id="Skills" className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative' }}>
+        <h1 className="text-2xl flex items-center gap-2 transition m-6">
+          <Image className="w-10" src="/bookl.svg" alt="Book Icon" width={100} height={100} />
+          Acquired Skills
+        </h1>
+            <div data-aos="fade-up" data-aos-duration="1000" className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
+              <div data-aos="fade-down" className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-90">
+                <Image src="/Python.png" alt="Python" width={100} height={100} className="object-contain" />
+                <div className="w-full text-left">
+                  <p className="font-semibold">Python</p>
+                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
+                    <div className="bg-[#F7C500] h-2 rounded-full" style={{ width: "100%" }}></div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-400 ml-2">100%</p>
+              </div>
+
+              <div data-aos="fade-down" className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-90">
+                <Image src="/looker.png" alt="looker" width={30} height={30} className="object-contain" />
+                <div className="w-full text-left">
+                  <p className="font-semibold">Looker Studio</p>
+                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
+                    <div className="bg-[#F7C500] h-2 rounded-full" style={{ width: "100%" }}></div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-400 ml-2">100%</p>
+              </div>
+
+              <div data-aos="fade-down" className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-90">
+                <Image src="/excal.png" alt="excal" width={40} height={40} className="object-contain" />
+                <div className="w-full text-left">
+                  <p className="font-semibold">Microsoft Excel</p>
+                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
+                    <div className="bg-[#F7C500] h-2 rounded-full" style={{ width: "100%" }}></div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-400 ml-2">100%</p>
+              </div>
+
+              <div data-aos="fade-down" className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-90">
+                <Image src="/knowledge.png" alt="knowledge" width={50} height={50} className="object-contain" />
+                <div className="w-full text-left">
+                  <p className="font-semibold">business knowledge</p>
+                  <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
+                    <div className="bg-[#F7C500] h-2 rounded-full" style={{ width: "100%" }}></div>
+                  </div>
+                </div>
+                <p className="text-sm text-gray-400 ml-2">100%</p>
+              </div>
+
+            </div> 
+      </div>
       </section>
+
 
       {/* Qualification Section */}
       <section id="Qualification" className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative' }}>

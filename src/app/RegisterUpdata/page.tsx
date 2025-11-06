@@ -373,11 +373,16 @@ const nextpageform = () => {
               <input
                 name="phone"
                 value={formData.phone}
-                placeholder="เบอร์โทรศัพท์"
+                type="tel"
+                inputMode="numeric"
+                pattern="0[0-9]{9}"
+                maxLength={10}
+                placeholder="เบอร์โทรศัพท์ (เช่น 0812345678)"
                 className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition w-full mb-4"
                 onChange={handleChange}
                 required
               />
+
               <input
                 name="address"
                 value={formData.address}
