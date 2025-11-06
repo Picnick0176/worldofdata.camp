@@ -76,7 +76,6 @@ export default function Navbar() {
             </Link>
             <Link
               href="/Register"
-              target="_blank"
               className={`px-4 py-2 rounded transition ${
                 pathname === "/Register"
                   ? "bg-[#F7C500]/70 font-semibold"
