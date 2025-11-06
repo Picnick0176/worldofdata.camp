@@ -49,7 +49,7 @@ export default function Navbar() {
               className={`px-4 py-2 rounded transition ${
                 pathname === "/" && activeSection === "home"
                   ? "bg-[#F7C500]/70 font-semibold"
-                  : "hover:underline"
+                  : "hover:text-[#F7C400]"
               }`}
             >
               Home
@@ -59,7 +59,7 @@ export default function Navbar() {
               className={`px-4 py-2 rounded transition ${
                 pathname === "/" && activeSection === "about"
                   ? "bg-[#F7C500]/70 font-semibold"
-                  : "hover:underline"
+                  : "hover:text-[#F7C400]"
               }`}
             >
               About
@@ -69,7 +69,7 @@ export default function Navbar() {
               className={`px-4 py-2 rounded transition ${
                 pathname === "/" && activeSection === "Activity"
                   ? "bg-[#F7C500]/70 font-semibold"
-                  : "hover:underline"
+                  : "hover:text-[#F7C400]"
               }`}
             >
               Activity
@@ -80,7 +80,7 @@ export default function Navbar() {
               className={`px-4 py-2 rounded transition ${
                 pathname === "/Register"
                   ? "bg-[#F7C500]/70 font-semibold"
-                  : "hover:underline"
+                  : "hover:text-[#F7C400]"
               }`}
             >
               Register
@@ -129,7 +129,7 @@ export default function Navbar() {
               className={`block mt-2 px-3 py-2 rounded-md transition ${
                 pathname === "/" && activeSection === "home"
                   ? "bg-[#F7C500]/70 font-semibold"
-                  : "bg-[#9E9E9E]/15 hover:underline"
+                  : "bg-[#9E9E9E]/15 hover:text-[#F7C400]"
               }`}
             >
               Home
@@ -139,7 +139,7 @@ export default function Navbar() {
               className={`block mt-2 px-3 py-2 rounded-md transition ${
                 pathname === "/" && activeSection === "about"
                   ? "bg-[#F7C500]/70 font-semibold"
-                  : "bg-[#9E9E9E]/15 hover:underline"
+                  : "bg-[#9E9E9E]/15 hover:text-[#F7C400]"
               }`}
             >
               About
@@ -149,7 +149,7 @@ export default function Navbar() {
               className={`block mt-2 px-3 py-2 rounded-md transition ${
                 pathname === "/" && activeSection === "Activity"
                   ? "bg-[#F7C500]/70 font-semibold"
-                  : "bg-[#9E9E9E]/15 hover:underline"
+                  : "bg-[#9E9E9E]/15 hover:text-[#F7C400]"
               }`}
             >
               Activity
@@ -159,7 +159,7 @@ export default function Navbar() {
               className={`block mt-2 px-3 py-2 rounded-md transition ${
                 pathname === "/Register"
                   ? "bg-[#F7C500]/70 font-semibold"
-                  : "bg-[#9E9E9E]/15 hover:underline"
+                  : "bg-[#9E9E9E]/15 hover:text-[#F7C400]"
               }`}
             >
               Register

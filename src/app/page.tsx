@@ -196,7 +196,7 @@ export default function Home() {
               <div data-aos="fade-down" className="bg-[#1A1C22] p-4 rounded-xl flex items-center gap-3 w-90">
                 <Image src="/knowledge.png" alt="knowledge" width={50} height={50} className="object-contain" />
                 <div className="w-full text-left">
-                  <p className="font-semibold">business knowledge</p>
+                  <p className="font-semibold">Business Knowledge</p>
                   <div className="w-full bg-gray-700 rounded-full h-2 mt-2">
                     <div className="bg-[#F7C500] h-2 rounded-full" style={{ width: "100%" }}></div>
                   </div>
@@ -221,7 +221,7 @@ export default function Home() {
             <div className="flex rounded-full bg-[#333333] w-20 h-20 items-center justify-center">
               <Image className="w-10" src="/Student Center.svg" alt="Qualification Icon" width={100} height={100} />
             </div>
-            <p className="text-xl text-left w-60">กำลังศึกษาอยู่มัธยมปีที่ 4 - 6 หรือเทียบเท่า</p>
+            <p className="text-xl text-left w-60">กำลังศึกษาอยู่ชั้นมัธยมศึกษาปีที่ 4 - 6 หรือเทียบเท่า</p>
           </div>
 
           <div className="bg-[#0E1015] w-full h-40 text-white p-3 rounded-3xl flex justify-center items-center gap-3">
@@ -246,9 +246,9 @@ export default function Home() {
 
           <div className="bg-[#0E1015] w-full h-40 text-white p-3 rounded-3xl flex justify-center items-center gap-3">
             <div className="flex rounded-full bg-[#333333] w-20 h-20 items-center justify-center">
-              <Image className="w-10" src="/Childrens Backpack.svg" alt="Qualification Icon" width={100} height={100} />
+              <Image className="w-10" src="/datascience.png" alt="Qualification Icon" width={100} height={100} />
             </div>
-            <p className="text-xl text-left w-60">สามารถมาร่วมกิจกรรมได้ในวันที่กำหนด</p>
+            <p className="text-xl text-left w-60">มีความสนใจในสาย Data Science</p>
           </div>
 
 
@@ -296,7 +296,7 @@ export default function Home() {
             <div className="text-left">
               <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">09 Jan 2026 - 11 Jan 2026</p>
               <h2 className="text-2xl font-bold mt-2">กิจกรรมค่าย</h2>
-              <p className="text-gray-400 text-sm mt-1">[ Thammasat University ]</p>
+              <p className="text-gray-400 text-sm mt-1">[ Thammasat University Rangsit Campus ]</p>
               <p className="mt-2 text-gray-300">วันที่ 9 - 11 มกราคม 2026 (3 วัน 2 คืน) 📍ค้างคืนที่มหาวิทยาลัยธรรมศาสตร์ รังสิต</p>
             </div>
           </div>

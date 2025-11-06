@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import TextInput from '../components/TextInput';
 import Link from 'next/link'
 export default function Register() {
+
   const [showRegisterForm, setShowRegisterForm] = useState(false);
   const [formData, setFormData] = useState({
     Name: "",
@@ -42,6 +43,18 @@ export default function Register() {
   });
   const [checked, setChecked] = useState(false);
 
+    // โหลดค่าที่บันทึกไว้จาก localStorage
+  useEffect(() => {
+    const savedData = localStorage.getItem("formData");
+    if (savedData) {
+      setFormData(JSON.parse(savedData));
+    }
+  }, []);
+
+  // บันทึกค่าใหม่ทุกครั้งที่เปลี่ยน
+  useEffect(() => {
+    localStorage.setItem("formData", JSON.stringify(formData));
+  }, [formData]);
 
   const handleChange2 = (e: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
@@ -133,6 +146,8 @@ const nextpageform = () => {
     // return true;
   };
 
+
+  
   // Function to convert file to base64
   const fileToBase64 = (file: File): Promise<string> => {
     return new Promise((resolve, reject) => {
@@ -152,6 +167,17 @@ const nextpageform = () => {
     setError("");
 
     if (!validateForm()) {
+      return;
+    }
+
+    // เวลาปัจจุบัน
+    const now = new Date();
+
+    // เวลาที่ไม่อนุญาตให้ส่ง (7 ธ.ค. 2025 เวลา 10:00)
+    const deadline = new Date("2025-12-07T10:00:00+07:00");
+
+    if (now > deadline) {
+      setError("ขออภัย หมดเวลาการส่งฟอร์มแล้ว (หลัง 7 ธ.ค. เวลา 10:00 น.)");
       return;
     }
 
@@ -295,35 +321,7 @@ const nextpageform = () => {
 
             <div>
               <p className="font-semibold mb-3 text-lg">ข้อมูลส่วนตัว</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <input
-                  name="Name"
-                  value={formData.Name}
-                  placeholder="ชื่อ"
-                  className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition "
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  name="lastname"
-                  value={formData.lastname}
-                  placeholder="นามสกุล"
-                  className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition "
-                  onChange={handleChange}
-                  required
-                />
-                <input
-                  name="Nickname"
-                  value={formData.Nickname}
-                  placeholder="ชื่อเล่น"
-                  className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition md:col-span-2"
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-
-              <div className="grid md:grid-cols-2 gap-4 mb-4">
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-4">
                 <select
                   name="gender"
                   value={formData.gender}
@@ -333,10 +331,37 @@ const nextpageform = () => {
                   <option value="">คำนำหน้า</option>
                   <option value="นาย">นาย</option>
                   <option value="นางสาว">นางสาว</option>
-                  <option value="ดช">เด็กชาย</option>
-                  <option value="ดญ">เด็กหญิง</option>
+                  <option value="เด็กชาย">เด็กชาย</option>
+                  <option value="เด็กหญิง">เด็กหญิง</option>
                 </select>
+                <input
+                  name="Name"
+                  value={formData.Name}
+                  placeholder="ชื่อ"
+                  className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition col-span-2 "
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  name="lastname"
+                  value={formData.lastname}
+                  placeholder="นามสกุล"
+                  className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition col-span-2 "
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
+
+              <div className="grid md:grid-cols-2 gap-4 mb-4">
+                  <input
+                  name="Nickname"
+                  value={formData.Nickname}
+                  placeholder="ชื่อเล่น"
+                  className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition"
+                  onChange={handleChange}
+                  required
+                />
 
 
                 <div className="flex items-center justify-between p-1 rounded-xl border border-gray-500 bg-white/10 text-gray-200">

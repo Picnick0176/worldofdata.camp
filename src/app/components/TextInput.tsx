@@ -52,7 +52,7 @@ const TextInput: React.FC<TextInputProps> = ({
             {/* Modal แสดงรูปใหญ่ */}
             {isOpen && (
               <div
-                className="fixed inset-0 bg-black/80 flex justify-center items-center z-50"
+                className="fixed inset-0 bg-black/80 flex justify-center items-center z-50 rounded-xl"
                 onClick={() => setIsOpen(false)} // คลิกพื้นหลังเพื่อปิด
               >
                 <div className="relative w-[90vw] max-w-3xl h-[80vh]">
@@ -62,12 +62,6 @@ const TextInput: React.FC<TextInputProps> = ({
                     fill
                     className="object-contain rounded-lg"
                   />
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className="absolute top-3 right-3 bg-black/60 text-white px-3 py-1 rounded-lg hover:bg-black/80"
-                  >
-                    ✕ ปิด
-                  </button>
                 </div>
               </div>
             )}
