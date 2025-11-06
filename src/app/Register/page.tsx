@@ -11,7 +11,7 @@ export default function RegisterComingSoon() {
 
   useEffect(() => {
     // Set target date to November 7, 2025 (2568 in Buddhist calendar)
-    const targetDate = new Date('2025-11-07T00:00:00').getTime();
+    const targetDate = new Date('2025-11-07T09:30:00').getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
