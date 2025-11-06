@@ -62,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Analytics/>
+
         <Navbar />
         {children}
         <Footer />
@@ -74,6 +74,7 @@ export default function RootLayout({
         speed={1}             // ความเร็วของการเคลื่อนไหว
         zIndex={1}           // ลำดับชั้น
       />
+        <Analytics/>
       </body>
     </html>
   );
