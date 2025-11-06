@@ -124,7 +124,7 @@ const nextpageform = () => {
       return false;
     }
 
-
+    return true;
 
     // if (!file1 || !file2) {
     //   setError("กรุณาอัปโหลดเอกสารทั้งสองไฟล์");
@@ -292,11 +292,6 @@ const nextpageform = () => {
           <div className="bg-white/5 backdrop-blur-2xl text-white p-8 rounded-3xl w-full max-w-2xl shadow-xl mt-30 mb-5">
             <h1 className="text-center text-2xl font-bold mb-8">กรอกข้อมูลลงทะเบียนเข้าค่าย</h1>
 
-            {error && (
-              <div className="bg-red-500/20 border border-red-500 text-red-200 p-3 rounded-lg mb-6">
-                {error}
-              </div>
-            )}
 
             <div>
               <p className="font-semibold mb-3 text-lg">ข้อมูลส่วนตัว</p>
@@ -654,6 +649,11 @@ const nextpageform = () => {
 
 
             </div>
+            {error && (
+              <div className="bg-red-500/20 border border-red-500 text-red-200 p-3 rounded-lg mb-6">
+                {error}
+              </div>
+            )}
             <div className="w-full flex justify-center mt-6">
               <button
                 onClick={handleSubmit}
