@@ -36,7 +36,7 @@ export default function SocialEmbed() {
       <div className="w-full md:w-[500px]">
         <blockquote
           className="instagram-media"
-          data-instgrm-permalink="https://www.instagram.com/worldofdata.camp?igsh=ZzBsdXBqMDIzc3l5"
+          data-instgrm-permalink="https://www.instagram.com/reel/DQ3QUHoEvwj/?utm_source=ig_embed&amp;utm_campaign=loading"
           data-instgrm-version="14"
           style={{
             background: "#FFF",
@@ -51,3 +51,6 @@ export default function SocialEmbed() {
     </div>
   );
 }
+
+
+

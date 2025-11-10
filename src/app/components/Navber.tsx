@@ -46,7 +46,7 @@ export default function Navbar() {
           <div className="hidden md:flex space-x-6 items-center">
             <Link
               href="/"
-              className={`px-4 py-2 rounded transition ${
+              className={`px-4 py-2 rounded transition-all duration-300 ease-in-out ${
                 pathname === "/" && activeSection === "home"
                   ? "bg-[#F7C500]/70 font-semibold"
                   : "hover:text-[#F7C400]"
@@ -56,7 +56,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/#about"
-              className={`px-4 py-2 rounded transition ${
+              className={`px-4 py-2 rounded transition-all duration-300 ease-in-out ${
                 pathname === "/" && activeSection === "about"
                   ? "bg-[#F7C500]/70 font-semibold"
                   : "hover:text-[#F7C400]"
@@ -66,7 +66,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/#Activity"
-              className={`px-4 py-2 rounded transition ${
+              className={`px-4 py-2 rounded transition-all duration-300 ease-in-out ${
                 pathname === "/" && activeSection === "Activity"
                   ? "bg-[#F7C500]/70 font-semibold"
                   : "hover:text-[#F7C400]"
@@ -76,7 +76,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/Register"
-              className={`px-4 py-2 rounded transition ${
+              className={`px-4 py-2 rounded transition-all duration-300 ease-in-out ${
                 pathname === "/Register"
                   ? "bg-[#F7C500]/70 font-semibold"
                   : "hover:text-[#F7C400]"
@@ -125,7 +125,7 @@ export default function Navbar() {
           <div className="md:hidden px-2 pb-4 bg-[#9E9E9E]/10 backdrop-blur-2xl filter brightness-90 rounded-xl flex flex-col items-center justify-center text-center space-y-3 py-6">
             <Link
               href="/"
-              className={`block mt-2 px-3 py-2 rounded-md transition ${
+              className={`block mt-2 px-3 py-2 rounded-md transition-all duration-300 ease-in-out ${
                 pathname === "/" && activeSection === "home"
                   ? "bg-[#F7C500]/70 font-semibold"
                   : "bg-[#9E9E9E]/15 hover:text-[#F7C400]"
@@ -135,7 +135,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/#about"
-              className={`block mt-2 px-3 py-2 rounded-md transition ${
+              className={`block mt-2 px-3 py-2 rounded-md transition-all duration-300 ease-in-out ${
                 pathname === "/" && activeSection === "about"
                   ? "bg-[#F7C500]/70 font-semibold"
                   : "bg-[#9E9E9E]/15 hover:text-[#F7C400]"
@@ -145,7 +145,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/#Activity"
-              className={`block mt-2 px-3 py-2 rounded-md transition ${
+              className={`block mt-2 px-3 py-2 rounded-md transition-all duration-300 ease-in-out ${
                 pathname === "/" && activeSection === "Activity"
                   ? "bg-[#F7C500]/70 font-semibold"
                   : "bg-[#9E9E9E]/15 hover:text-[#F7C400]"
@@ -155,7 +155,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/Register"
-              className={`block mt-2 px-3 py-2 rounded-md transition ${
+              className={`block mt-2 px-3 py-2 rounded-md transition-all duration-300 ease-in-out ${
                 pathname === "/Register"
                   ? "bg-[#F7C500]/70 font-semibold"
                   : "bg-[#9E9E9E]/15 hover:text-[#F7C400]"

@@ -285,7 +285,7 @@ export default function Home() {
               <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">08 Dec 2025</p>
               <h2 className="text-2xl font-bold mt-2">ประกาศรายชื่อผู้ผ่านเข้ารอบ 30 คน</h2>
               <p className="text-gray-400 text-sm mt-1">[ Instagram Account, Facebook Fanpage และ Email ตอบกลับ]</p>
-              <p className="mt-2 text-gray-300">ประกาศผล : วันที่ 8 ธันวาคม 2025 เวลา 10:00 น. ผู้ผ่านเข้ารอบจำนวน 30 คน ผ่านช่องทาง Instagram Account, Facebook Fanpage และ Email ตอบกลับ</p>
+              <p className="mt-2 text-gray-300">ประกาศผล : วันที่ 8 ธันวาคม 2025 เวลา 18:00 น. ผู้ผ่านเข้ารอบจำนวน 30 คน ผ่านช่องทาง Instagram Account, Facebook Fanpage และ Email ตอบกลับ</p>
             </div>
           </div>
 
@@ -321,6 +321,7 @@ export default function Home() {
             />
           </div>
         </div>
+        
       </section>
 
 
