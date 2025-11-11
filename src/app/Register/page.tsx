@@ -471,6 +471,7 @@ const nextpageform = () => {
                   <option value="ม.4">ม.4</option>
                   <option value="ม.5">ม.5</option>
                   <option value="ม.6">ม.6</option>
+                  <option value="หรือเทียบเท่า">หรือเทียบเท่า</option>
                 </select>
               </div>
 
