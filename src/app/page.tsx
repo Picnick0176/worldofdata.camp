@@ -294,7 +294,7 @@ export default function Home() {
             <div className="w-3 aspect-square bg-yellow-400/30 rounded-full mt-2 flex-shrink-0"></div>
 
             <div className="text-left">
-              <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">09 Jan 2026 - 11 Jan 2026</p>
+              <p className="text-sm text-gray-300 bg-gray-800 px-3 py-1 rounded-full inline-block">30 Jan 2026 - 1 Feb 2026</p>
               <h2 className="text-2xl font-bold mt-2">กิจกรรมค่าย</h2>
               <p className="text-gray-400 text-sm mt-1">[ Thammasat University Rangsit Campus ]</p>
               <p className="mt-2 text-gray-300">วันที่ 30 มกราคม 2026 - 1 กุมภาพันธ์ 2026 (3 วัน 2 คืน) 📍ค้างคืนที่มหาวิทยาลัยธรรมศาสตร์ รังสิต</p>
