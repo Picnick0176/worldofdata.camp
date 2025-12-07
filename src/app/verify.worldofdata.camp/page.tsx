@@ -9,37 +9,10 @@ export default function Register() {
     Name: "",
     Idline: "",
     lastname: "",
-    status: "",
-    gender: "",
-    dob: "",
+    statuscamp: "",
     food: "",
     disease: "",
-    school: "",
-    level: "",
-    program: "",
-    province: "",
-    gpa: "",
-    address: "",
-    Instagram: "",
-    LineID: "",
-    News: "",
-    Computer: "",
-    PDPA: "",
-    question1: "",
-    question2: "",
-    question3: "",
-    question4: "",
-    question5: "",
-    question6: "",
-    question7: "",
-    question8: "",
-    question9: "",
-    question10: "",
-    question11: "",
-    question12: "",
-    question13: "",
-    question14: "",
-    question15: "",
+    gender: "",
   });
   const [checked, setChecked] = useState(false);
 
@@ -56,18 +29,6 @@ export default function Register() {
     localStorage.setItem("formData", JSON.stringify(formData));
   }, [formData]);
 
-  const handleChange2 = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const isChecked = e.target.checked;
-    setChecked(isChecked);
-    setFormData((prev) => ({
-      ...prev,
-      PDPA: isChecked ? "รับทราบและยอมรับ" : "ไม่ยอมรับเงื่อนไข", // ✅ เก็บค่าลง formData
-    }));
-  };
-
-
-
-
   const [file1, setFile1] = useState<File | undefined>(undefined);
   const [file2, setFile2] = useState<File | undefined>(undefined);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -82,62 +43,31 @@ export default function Register() {
   };
 
   const validateForm = () => {
-    if (!formData.Name || !formData.Idline) {
+    if (!formData.Name || !formData.lastname) {
       setError("กรุณากรอกชื่อและนามสกุล");
       return false;
     }
-    if (!formData.food || !formData.disease) {
-      setError("กรุณากรอกอีเมลและเบอร์โทรศัพท์");
-      return false;
-    }
-    if (!formData.food || !formData.disease) {
-      setError("กรุณากรอกอีเมลและเบอร์โทรศัพท์");
-      return false;
-    }
-    if (!formData.school || !formData.level) {
-      setError("กรุณากรอกข้อมูลการศึกษา");
-      return false;
-    }
-
-    if (!formData.address) {
-      setError("กรุณากรอกข้อมูลที่อยู่");
-      return false;
-    }
-    if (!formData.Instagram || !formData.LineID) {
-      setError("กรุณากรอกInstagramและLineID");
-      return false;
-    }
-
     if (!formData.gender) {
       setError("กรุณากรอกคำนำหน้าชื่อ");
       return false;
     }
 
-    if (!formData.dob) {
-      setError("กรุณากรอกวันเดือนปีเกิด");
-      return false;
-    }
-    if (!formData.News) {
-      setError("กรุณากรอกช่องทราบข่าวสาว");
-      return false;
-    }
-    if (!formData.school || !formData.level) {
-      setError("กรุณากรอกข้อมูลโรงเรียนให้ครบ");
+    if (!formData.Idline) {
+      setError("กรุณากรอก ID Line พี่ๆจำเป็นต้องเอาไว้ติดต่อยืนยัน");
       return false;
     }
 
-    if (!formData.Computer || !formData.question1 || !formData.question2 || !formData.question3 || !formData.question4 || !formData.question5 || !formData.question6 || !formData.question7 || !formData.question8 || !formData.question9 || !formData.question10 || !formData.question11 || !formData.question12 || !formData.question13 || !formData.question14 || !formData.question15) {
-      setError("กรูณาตอบคำถามคัดเข้าค่าย");
+    if (!formData.food || !formData.disease ) {
+      setError("กรุณากรอกข้อมูลอาหารและโรคประจำตัว");
       return false;
     }
 
+
+    if (!file2) {
+      setError("กรุณาอัปโหลดเอกสารขออนุญาติผู้ปกครอง");
+      return false;
+    }
     return true;
-
-    // if (!file1 || !file2) {
-    //   setError("กรุณาอัปโหลดเอกสารทั้งสองไฟล์");
-    //   return false;
-    // }
-    // return true;
   };
 
 
@@ -170,10 +100,10 @@ export default function Register() {
     // เวลาที่ไม่อนุญาตให้ส่ง (7 ธ.ค. 2025 เวลา 10:00)
     const deadline = new Date("2025-12-07T10:00:00+07:00");
 
-    if (now > deadline) {
-      setError("ขออภัย หมดเวลาการส่งฟอร์มแล้ว (หลัง 7 ธ.ค. เวลา 10:00 น.)");
-      return;
-    }
+    // if (now > deadline) {
+    //   setError("ขออภัย หมดเวลาการส่งฟอร์มแล้ว (หลัง 7 ธ.ค. เวลา 10:00 น.)");
+    //   return;
+    // }
 
     setIsSubmitting(true);
 
@@ -183,7 +113,7 @@ export default function Register() {
       const file2Base64 = file2 ? await fileToBase64(file2) : '';
 
       // Google Apps Script URL
-      const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzkp0pOOn_Fdt-Bmp7z049TYiU5EuFnrCpX3SMWKF2wDYPnUYfKwYqb-9ckgDkRzPm_/exec";
+      const googleScriptUrl = "https://script.google.com/macros/s/AKfycbw5O7-bHxQ-L9IsMmKsQxwhOnwXYXkMcJPmF05qxKqm7iAuZjBsft79RfsOZ9W2xnGP/exec";
 
       // Create form data with all fields
       const formDataToSend = new FormData();
@@ -223,37 +153,10 @@ export default function Register() {
         Name: "",
         Idline: "",
         lastname: "",
-        status: "",
-        gender: "",
-        dob: "",
+        statuscamp: "",
         food: "",
         disease: "",
-        school: "",
-        level: "",
-        program: "",
-        province: "",
-        gpa: "",
-        address: "",
-        Instagram: "",
-        LineID: "",
-        News: "",
-        Computer: "",
-        PDPA: "",
-        question1: "",
-        question2: "",
-        question3: "",
-        question4: "",
-        question5: "",
-        question6: "",
-        question7: "",
-        question8: "",
-        question9: "",
-        question10: "",
-        question11: "",
-        question12: "",
-        question13: "",
-        question14: "",
-        question15: "",
+        gender: "",
       });
       setFile1(undefined);
       setFile2(undefined);
@@ -325,8 +228,8 @@ export default function Register() {
                 />
 
                 <select
-                  name="status"
-                  value={formData.status}
+                  name="statuscamp"
+                  value={formData.statuscamp}
                   className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition"
                   onChange={handleChange}
                 >
@@ -348,46 +251,86 @@ export default function Register() {
               <input
                 name="disease"
                 value={formData.disease}
-                placeholder="โรคประจำตัว (หากไม่มีให้ใส่ -)"
+                placeholder="โรคประจำตัว(หากเป็นภูมิแพ้ กรุณาระบุให้ละเอียดว่าแพ้อะไร // หากไม่มีให้ใส่ - )"
                 type="text"
                 className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition w-full mb-4"
                 onChange={handleChange}
                 required
               />
 
-              <p className="text-red-600">*หากไม่ประสงค์กรอกโซเซียลมิเดียโปรดใส่ -</p>
+              <div className="p-3  text-lgrounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition w-full mb-4">
+                <h1 className="text-3xl text-yellow-400">ค่าสวัสดิการและที่พัก</h1>
+                <p >ค่าสวัสดิการและที่พักตลอด 3 วัน 2 คืน</p>
+                <p >ธนาคารกสิกรไทย</p>
+                <p >เลขที่บัญชี 1943641540</p>
+                <p >ชื่อบัญชี นางสาวจรรยาภรณ์ ธเนศเศรษฐ์</p>
+                <p >จำนวนเงิน 450 บาท <br /><span className="text-red-600">**(เฉพาะน้องๆ ตัวจริงเท่านั้น รายชื่อสำรองจะมีการติดต่อชำระเงินภายหลัง)</span></p>
+              </div>
+              <p className="text-white text-lg">*โปรดแนบหลักฐานการชำระเงิน</p>
 
 
 
-            <div className="relative">
-              <input
-                type="file"
-                id="file-upload-1"
-                onChange={(e) => setFile1(e.target.files?.[0])}
-                className="hidden"
-                accept=".pdf,.jpg,.jpeg,.png"
-              />
-              <label
-                htmlFor="file-upload-1"
-                className="flex items-center justify-center gap-3 w-full px-4 py-3 bg-white/10 backdrop-blur-2xl border border-gray-400 hover:border-yellow-400 focus:border-yellow-400 transition rounded-lg cursor-pointer hover:bg-white/20"
-              >
-                {file1 ? (
-                  <>
-                    <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-white truncate">{file1.name}</span>
-                  </>
-                ) : (
-                  <>
-                    <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                    </svg>
-                    <span className="text-gray-300">Upload</span>
-                  </>
-                )}
-              </label>
-            </div>
+              <div className="relative">
+                <input
+                  type="file"
+                  id="file-upload-1"
+                  onChange={(e) => setFile1(e.target.files?.[0])}
+                  className="hidden"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                />
+                <label
+                  htmlFor="file-upload-1"
+                  className="flex items-center justify-center gap-3 w-full px-4 py-3 bg-white/10 backdrop-blur-2xl border border-gray-400 hover:border-yellow-400 focus:border-yellow-400 transition rounded-lg cursor-pointer hover:bg-white/20"
+                >
+                  {file1 ? (
+                    <>
+                      <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-white truncate">{file1.name}</span>
+                    </>
+                  ) : (
+                    <>
+                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                      </svg>
+                      <span className="text-gray-300">Upload</span>
+                    </>
+                  )}
+                </label>
+              </div>
+              <br />
+              <p className="text-white text-lg">*หนังสือขออนุญาตผู้ปกครอง</p>
+              <p className="text-[#F7C400] m-2">ดาวห์โหลดได้ที่นี่ : <Link className='underline' href="/หนังสือขอความยินยอมจากผู้ปกครอง.pdf" >หนังสือขอความยินยอมจากผู้ปกครอง</Link></p>
+              <div className="relative">
+                <input
+                  type="file"
+                  id="file-upload-2"
+                  onChange={(e) => setFile2(e.target.files?.[0])}
+                  className="hidden"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                />
+                <label
+                  htmlFor="file-upload-2"
+                  className="flex items-center justify-center gap-3 w-full px-4 py-3 bg-white/10 backdrop-blur-2xl border border-gray-400 hover:border-yellow-400 focus:border-yellow-400 transition rounded-lg cursor-pointer hover:bg-white/20"
+                >
+                  {file2 ? (
+                    <>
+                      <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-white truncate">{file2.name}</span>
+                    </>
+                  ) : (
+                    <>
+                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                      </svg>
+                      <span className="text-gray-300">Upload</span>
+                    </>
+                  )}
+                </label>
+              </div>
 
 
             </div>

@@ -16,8 +16,8 @@ interface Person {
 
 export default function RegisterComingSoon() {
   // แทนที่ URL นี้ด้วย Apps Script URL ของคุณ
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx15GoM2kCt2dWPtWZDCF8L0zoLh9ZplamUlJQi1KeD21cXsBBFW5CmwfllzfnLRsWrdQ/exec';
-  
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzkp0pOOn_Fdt-Bmp7z049TYiU5EuFnrCpX3SMWKF2wDYPnUYfKwYqb-9ckgDkRzPm_/exec';
+
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<Person[]>([]);
   const [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ export default function RegisterComingSoon() {
     try {
       const url = `${APPS_SCRIPT_URL}?query=${encodeURIComponent(searchQuery)}`;
       const response = await fetch(url);
-      
+
       if (!response.ok) {
         throw new Error('ไม่สามารถดึงข้อมูลได้');
       }
@@ -134,7 +134,7 @@ export default function RegisterComingSoon() {
         {error && (
           <div className="bg-red-500/20 border border-red-500 rounded-lg p-4 text-red-200">
             <p>❌ {error}</p>
-            <button 
+            <button
               onClick={handleReset}
               className="mt-2 text-sm underline hover:text-white"
             >
@@ -151,7 +151,7 @@ export default function RegisterComingSoon() {
             <p className="text-gray-300 text-sm mb-4">
               ไม่พบรายชื่อที่ตรงกับ "{searchQuery}"
             </p>
-            <button 
+            <button
               onClick={handleReset}
               className="px-4 py-2 bg-yellow-400 text-black rounded-lg hover:bg-yellow-500 transition"
             >
@@ -164,7 +164,7 @@ export default function RegisterComingSoon() {
           <div className="space-y-4">
             <div className="flex justify-between items-center mb-4">
               <p className="text-gray-300">พบ {searchResults.length} รายการ</p>
-              <button 
+              <button
                 onClick={handleReset}
                 className="text-sm px-3 py-1 bg-white/10 rounded-lg hover:bg-white/20 transition"
               >
@@ -173,7 +173,7 @@ export default function RegisterComingSoon() {
             </div>
 
             {searchResults.map((person, index) => (
-              <div 
+              <div
                 key={index}
                 className="bg-white/10 backdrop-blur-xl rounded-lg p-5 border border-white/20 hover:border-yellow-400/50 transition"
               >
@@ -183,18 +183,16 @@ export default function RegisterComingSoon() {
                       {person.firstName} {person.lastName}
                     </h3>
                     <div className="space-y-1 text-sm text-gray-300">
-                      <p>ID : {person.id}</p>
                       <p>📞 {person.phone}</p>
                       <p>📧 {person.email}</p>
                       <p>🏫 {person.school}</p>
                     </div>
                   </div>
-                  
-                  <div className={`px-4 py-2 rounded-full flex items-center gap-2 ${
-                    person.status.toLowerCase().includes('ผ่าน') || person.status.toLowerCase().includes('pass')
-                      ? 'bg-green-500/20 text-green-300 border border-green-500'
-                      : 'bg-red-500/20 text-red-300 border border-red-500'
-                  }`}>
+
+                  {/* <div className={`px-4 py-2 rounded-full flex items-center gap-2 ${person.status.toLowerCase().includes('ผ่าน') || person.status.toLowerCase().includes('pass')
+                    ? 'bg-green-500/20 text-green-300 border border-green-500'
+                    : 'bg-red-500/20 text-red-300 border border-red-500'
+                    }`}>
                     {person.status.toLowerCase().includes('ผ่าน') || person.status.toLowerCase().includes('pass') ? (
                       <>
                         <CheckCircle size={18} />
@@ -206,16 +204,45 @@ export default function RegisterComingSoon() {
                         <span className="font-bold">ไม่ผ่าน</span>
                       </>
                     )}
-                  </div>
+                  </div> */}
+
                 </div>
 
                 {person.status.toLowerCase().includes('ผ่าน') || person.status.toLowerCase().includes('pass') ? (
-                  <div className="mt-4 p-3 bg-green-500/10 rounded-lg border border-green-500/30">
+                  // ผ่าน
+                  <div className="m-4 p-3 bg-green-500/10 rounded-lg border border-green-500/30">
                     <p className="text-green-300 text-sm">
                       ✅ ยินดีด้วย! คุณผ่านการคัดเลือก กรุณาดำเนินการตามขั้นตอนถัดไป
                     </p>
                   </div>
+
+                ) : person.status.toLowerCase().includes('สำรอง') || person.status.toLowerCase().includes('reserve') ? (
+                  // สำรอง
+                  <div className="m-4 p-3 bg-yellow-500/10 rounded-lg border border-yellow-500/30">
+                    <p className="text-yellow-300 text-sm">
+                      ⚠️ คุณอยู่ในรายชื่อสำรอง หากมีที่ว่างทีมงานจะติดต่อกลับทางอีเมล กรุณารอการยืนยัน
+                    </p>
+                  </div>
+
+                ) : (
+                  // ไม่ผ่าน
+                  <div className="m-4 p-3 bg-red-500/20 rounded-lg border border-red-500">
+                    <p className="text-red-300 text-sm">
+                      ❌ ขอแสดงความเสียใจด้วย! คุณไม่ผ่านการคัดเลือก ขอบคุณที่สนใจค่าย World of Data Camp 2025
+                    </p>
+                  </div>
+                )}
+
+
+                {person.status.toLowerCase().includes('ผ่าน') || person.status.toLowerCase().includes('pass') || person.status.toLowerCase().includes('สำรอง') || person.status.toLowerCase().includes('reserve') ? (
+                  
+                  <Link
+                    href='/verify.worldofdata.camp'
+                    className="px-8 py-3 mt-10 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                  >กรอกข้อมูลยืนยันผล
+                  </Link>
                 ) : null}
+
               </div>
             ))}
           </div>

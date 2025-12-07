@@ -11,7 +11,7 @@ export default function RegisterComingSoon() {
 
   useEffect(() => {
     // Set target date to November 7, 2025 (2568 in Buddhist calendar)
-    const targetDate = new Date('2025-11-07T09:30:00').getTime();
+    const targetDate = new Date('2025-12-08T18:00:00').getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -44,7 +44,7 @@ export default function RegisterComingSoon() {
       <div className="text-center bg-white/5 backdrop-blur-2xl text-white p-8 rounded-3xl w-full max-w-2xl shadow-xl mt-30 mb-5">
         {/* Title */}
         <h1 className="text-3xl md:text-4xl font-bold text-yellow-400 mb-16">
-          Coming Soon Form Register
+          Coming Soon Announcement of results
         </h1>
 
         {/* Countdown Timer */}
@@ -88,7 +88,7 @@ export default function RegisterComingSoon() {
 
         {/* Thai Date Text */}
         <p className="text-yellow-400 text-xl md:text-2xl font-semibold mb-12">
-          เปิดลงทะเบียนวันที่ 7 พฤศจิกายน 2568
+          ประกาศผล 8 ธันวาคม 2568 เวลา 18.00 น.
         </p>
 
         {/* Home Button */}
