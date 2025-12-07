@@ -174,10 +174,10 @@ const nextpageform = () => {
     const now = new Date();
 
     // เวลาที่ไม่อนุญาตให้ส่ง (7 ธ.ค. 2025 เวลา 10:00)
-    const deadline = new Date("2025-12-07T23:59:00+07:00");
+    const deadline = new Date("2025-12-00T00:20:00+07:00");
 
     if (now > deadline) {
-      setError("ขออภัย หมดเวลาการส่งฟอร์มแล้ว (หลัง 7 ธ.ค. เวลา 10:00 น.)");
+      setError("ขออภัย หมดเวลาการส่งฟอร์มแล้ว (หลัง 8 ธ.ค. เวลา 23:59 น.)");
       return;
     }
 
