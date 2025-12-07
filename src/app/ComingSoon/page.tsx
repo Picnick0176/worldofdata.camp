@@ -40,7 +40,7 @@ export default function RegisterComingSoon() {
   };
 
   return (
-    <div className="min-h-screen  from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4"  style={{ backgroundImage: "url('/Group2.svg')" }}>
+    <div className="min-h-screen  from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center p-4 h-full bg-cover bg-center w-full"  style={{ backgroundImage: "url('/Group2.svg')" }}>
       <div className="text-center bg-white/5 backdrop-blur-2xl text-white p-8 rounded-3xl w-full max-w-2xl shadow-xl mt-30 mb-5">
         {/* Title */}
         <h1 className="text-3xl md:text-4xl font-bold text-yellow-400 mb-16">

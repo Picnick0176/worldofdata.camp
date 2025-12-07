@@ -233,7 +233,8 @@ export default function Register() {
                   className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition"
                   onChange={handleChange}
                 >
-                  <option value="ยืนยันสิทธ์เข้าค่าย">ยืนยันสิทธ์เข้าค่าย</option>
+                  <option value="">การยืนยันสิทธ์เข้าร่วมค่าย</option>
+                  <option value="ยืนยันสิทธ์เข้าค่าย">ยืนยันสิทธ์เข้าร่วมค่ายในวันที่ 30 ม.ค. 2569 - 1 ก.พ. 2569 </option>
                   <option value="สละสิทธ์">สละสิทธ์</option>
                 </select>
               </div>
@@ -301,7 +302,7 @@ export default function Register() {
               </div>
               <br />
               <p className="text-white text-lg">*หนังสือขออนุญาตผู้ปกครอง</p>
-              <p className="text-[#F7C400] m-2">ดาวห์โหลดได้ที่นี่ : <Link className='underline' href="/หนังสือขอความยินยอมจากผู้ปกครอง.pdf" >หนังสือขอความยินยอมจากผู้ปกครอง</Link></p>
+              <p className="text-[#F7C400] m-2">ดาวห์โหลดได้ที่นี่ : <Link className='underline' href="/หนังสือขอความยินยอมจากผู้ปกครอง.pdf" target="_blank" >หนังสือขอความยินยอมจากผู้ปกครอง</Link></p>
               <div className="relative">
                 <input
                   type="file"

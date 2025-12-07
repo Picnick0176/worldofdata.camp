@@ -175,25 +175,63 @@ export default function RegisterComingSoon() {
             {searchResults.map((person, index) => (
               <div
                 key={index}
-                className="bg-white/10 backdrop-blur-xl rounded-lg p-5 border border-white/20 hover:border-yellow-400/50 transition"
+                className=" rounded-lg p-5 hover:border-yellow-400/50 transition"
               >
+             
+
+
+              {person.status.toLowerCase() === "ผ่าน" || person.status.toLowerCase() === "pass"  ? (
+                  // ผ่าน
+                  <div className="relative flex justify-center mt-10">
+                    <Image
+                      className="w-30 absolute top-[-80]"
+                      src="/pass.svg"
+                      alt="Qualification Icon"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+
+                ) : person.status.toLowerCase()=== "สำรอง" || person.status.toLowerCase()=== "reserve" ? (
+                  // สำรอง
+                  <div className="relative flex justify-center mt-10">
+                    <Image
+                      className="w-30 absolute top-[-80]"
+                      src="/reserve.svg"
+                      alt="Qualification Icon"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+
+                ) : (
+                  // ไม่ผ่าน
+                  <div className="relative flex justify-center mt-10">
+                    <Image
+                      className="w-30 absolute top-[-80]"
+                      src="/error.svg"
+                      alt="Qualification Icon"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
+                )}
+                <div className='bg-[#1E1E1E]  h-full p-14 rounded-2xl'>
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-yellow-400 mb-1">
+                    <h3 className="text-4xl font-bold text-[#ffffffce] mb-1">
                       {person.firstName} {person.lastName}
                     </h3>
                     <div className="space-y-1 text-sm text-gray-300">
-                      <p>📞 {person.phone}</p>
-                      <p>📧 {person.email}</p>
-                      <p>🏫 {person.school}</p>
+                        <p>{person.school}</p> 
                     </div>
                   </div>
 
-                  {/* <div className={`px-4 py-2 rounded-full flex items-center gap-2 ${person.status.toLowerCase().includes('ผ่าน') || person.status.toLowerCase().includes('pass')
+                  {/* <div className={`px-4 py-2 rounded-full flex items-center gap-2 ${person.status.toLowerCase() === "ผ่าน" || person.status.toLowerCase() === "pass" 
                     ? 'bg-green-500/20 text-green-300 border border-green-500'
                     : 'bg-red-500/20 text-red-300 border border-red-500'
                     }`}>
-                    {person.status.toLowerCase().includes('ผ่าน') || person.status.toLowerCase().includes('pass') ? (
+                    {person.status.toLowerCase() === "ผ่าน" || person.status.toLowerCase() === "pass"  ? (
                       <>
                         <CheckCircle size={18} />
                         <span className="font-bold">ผ่าน</span>
@@ -208,41 +246,52 @@ export default function RegisterComingSoon() {
 
                 </div>
 
-                {person.status.toLowerCase().includes('ผ่าน') || person.status.toLowerCase().includes('pass') ? (
+                {person.status.toLowerCase() === "ผ่าน" || person.status.toLowerCase() === "pass"  ? (
                   // ผ่าน
-                  <div className="m-4 p-3 bg-green-500/10 rounded-lg border border-green-500/30">
-                    <p className="text-green-300 text-sm">
-                      ✅ ยินดีด้วย! คุณผ่านการคัดเลือก กรุณาดำเนินการตามขั้นตอนถัดไป
-                    </p>
-                  </div>
+                    <h1 className="text-3xl">
+                      คุณผ่านการคัดเลือก
+                    </h1>
 
-                ) : person.status.toLowerCase().includes('สำรอง') || person.status.toLowerCase().includes('reserve') ? (
+                ) : person.status.toLowerCase()=== "สำรอง" || person.status.toLowerCase() === "reserve" ? (
                   // สำรอง
-                  <div className="m-4 p-3 bg-yellow-500/10 rounded-lg border border-yellow-500/30">
-                    <p className="text-yellow-300 text-sm">
-                      ⚠️ คุณอยู่ในรายชื่อสำรอง หากมีที่ว่างทีมงานจะติดต่อกลับทางอีเมล กรุณารอการยืนยัน
-                    </p>
-                  </div>
+                    <h1 className="text-3xl">
+                      คุณอยู่ในรายชื่อสำรอง
+                    </h1>
 
                 ) : (
                   // ไม่ผ่าน
-                  <div className="m-4 p-3 bg-red-500/20 rounded-lg border border-red-500">
-                    <p className="text-red-300 text-sm">
-                      ❌ ขอแสดงความเสียใจด้วย! คุณไม่ผ่านการคัดเลือก ขอบคุณที่สนใจค่าย World of Data Camp 2025
-                    </p>
-                  </div>
+                    <h1 className="text-3xl">
+                      คุณไม่ผ่านการคัดเลือก
+                    </h1>
                 )}
 
 
-                {person.status.toLowerCase().includes('ผ่าน') || person.status.toLowerCase().includes('pass') || person.status.toLowerCase().includes('สำรอง') || person.status.toLowerCase().includes('reserve') ? (
-                  
-                  <Link
-                    href='/verify.worldofdata.camp'
-                    className="px-8 py-3 mt-10 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition disabled:opacity-50 disabled:cursor-not-allowed"
-                  >กรอกข้อมูลยืนยันผล
-                  </Link>
-                ) : null}
 
+                <p className='text-[#F7C400]'>เข้าค่าย World of Data Camp 2025</p>
+
+                <div className="flex flex-col items-center justify-center text-center mt-4">                  
+                  {(person.status.toLowerCase() === "ผ่าน" || person.status.toLowerCase() === "pass"  ||
+                    person.status.toLowerCase()=== "สำรอง" ||
+                    person.status.toLowerCase()=== "reserve") && (
+                      <div className="flex gap-2 items-center justify-center">
+                        <Image className="w-5" src="/Done.svg" alt="DoneIcon" width={100} height={100} />
+                        <p>กรุณาทำตามขั้นตอนการยืนยัน</p>
+                      </div>
+                  )}
+                  {(person.status.toLowerCase() === "ผ่าน" || person.status.toLowerCase() === "pass"  ||
+                    person.status.toLowerCase()=== "สำรอง" ||
+                    person.status.toLowerCase()=== "reserve") && (
+                      <Link
+                        href="/verify.worldofdata.camp"
+                        className="px-8 py-3 mt-6 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        กรอกข้อมูลยืนยันผล
+                      </Link>
+                  )}
+                </div>
+
+
+              </div>
               </div>
             ))}
           </div>
@@ -258,6 +307,7 @@ export default function RegisterComingSoon() {
             รายชื่อผู้ที่ผ่านการคัดเลือกทั้งหมด
           </Link>
         </div> */}
+        
       </div>
     </div>
   );
