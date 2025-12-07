@@ -250,10 +250,6 @@ export default function Home() {
             </div>
             <p className="text-xl text-left w-60">มีความสนใจในสาย Data Science</p>
           </div>
-
-
-
-          
         </div>
       </section>
 
