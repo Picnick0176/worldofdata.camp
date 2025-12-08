@@ -209,7 +209,7 @@ export default function Register() {
                 <input
                   name="Idline"
                   value={formData.Idline}
-                  placeholder="ID LINE"
+                  placeholder="ID LINE (จำเป็นต้องใส่)"
                   className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition"
                   onChange={handleChange}
                   required
@@ -221,7 +221,6 @@ export default function Register() {
                   className="p-3 rounded-lg outline-none bg-white/10 backdrop-blur-2xl border border-gray-400 focus:border-yellow-400 transition"
                   onChange={handleChange}
                 >
-                  <option value="">การยืนยันสิทธ์เข้าร่วมค่าย</option>
                   <option value="ยืนยันสิทธ์เข้าค่าย">ยืนยันสิทธ์เข้าร่วมค่ายในวันที่ 30 ม.ค. 2569 - 1 ก.พ. 2569</option>
                   <option value="สละสิทธ์">สละสิทธ์</option>
                 </select>
