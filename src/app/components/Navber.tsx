@@ -13,20 +13,8 @@ export default function Navbar() {
     const deadline = new Date("2025-12-07T23:59:00+07:00");
     const deadline2 = new Date("2025-12-08T18:00:00+07:00");
 
-    let page = "";
-    let page_label = "";
-
-    if (now > deadline) {
-      page = "/ComingSoon";
-      page_label = "ประกาศผล";
-    } else if (now > deadline2) {
-      page = "/results";
-      page_label = "ประกาศผล";
-    } else {
-      page = "/Register";
-      page_label = "Register";
-}
-
+    let page = "/results";
+    let page_label = "ประกาศผล";
 
   useEffect(() => {
     if (pathname !== "/") {
@@ -174,14 +162,14 @@ export default function Navbar() {
               Activity
             </Link>
             <Link
-              href="/Register"
+              href = {page}
               className={`block mt-2 px-3 py-2 rounded-md transition-all duration-300 ease-in-out ${
-                pathname === "/Register"
+                pathname === page
                   ? "bg-[#F7C500]/70 font-semibold"
                   : "bg-[#9E9E9E]/15 hover:text-[#F7C400]"
               }`}
             >
-              Register
+              {page_label}
             </Link>
           </div>
         )}
