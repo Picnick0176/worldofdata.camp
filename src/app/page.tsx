@@ -321,7 +321,7 @@ export default function Home() {
       </section>
 
 
-      <section id='followus' className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative' }}>
+      {/* <section id='followus' className="flex flex-col items-center justify-center text-center py-20 z-100" style={{ zIndex: 9999, position: 'relative' }}>
         <h1 className="text-2xl flex items-center gap-2 transition mb-3">
           <Image className="w-10" src="/Following.png" alt="Book Icon" width={100} height={100} />follow us
         </h1>
@@ -332,7 +332,7 @@ export default function Home() {
         >
           สมัครได้แล้วที่นี่!!!
         </Link>
-      </section>
+      </section> */}
 
 
     </div>
