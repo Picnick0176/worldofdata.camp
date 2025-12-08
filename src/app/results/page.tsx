@@ -26,7 +26,7 @@ export default function RegisterComingSoon() {
 
   const handleSearch = async () => {
     if (!searchQuery.trim()) {
-      alert("กรุณากรอกชื่อ-นามสกุล หรือเบอร์มือถือ");
+      alert("กรุณากรอกเบอร์มือถือ");
       return;
     }
 
@@ -101,17 +101,23 @@ export default function RegisterComingSoon() {
 
         <div className="relative w-full">
           <input
-            name="results"
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="กรอกชื่อ-นามสกุล/เบอร์มือถือ"
-            className="p-3 pr-12 rounded-lg outline-none bg-white/10 
-              backdrop-blur-2xl border border-gray-400 
-              focus:border-yellow-400 transition w-full mb-4"
-            disabled={loading}
-          />
+              name="results"
+              type="tel"
+              maxLength={10}
+              value={searchQuery}
+              onChange={(e) => {
+                const onlyNumbers = e.target.value.replace(/[^0-9]/g, ""); 
+                setSearchQuery(onlyNumbers);
+                alert('กรุณากรอกเบอร์โทรที่ลงทะเบียนไว้')
+              }}
+              onKeyDown={handleKeyDown}
+              placeholder="กรอกเบอร์มือถือ"
+              className="p-3 pr-12 rounded-lg outline-none bg-white/10 
+                backdrop-blur-2xl border border-gray-400 
+                focus:border-yellow-400 transition w-full mb-4"
+              disabled={loading}
+            />
+
 
           <button
             onClick={handleSearch}
