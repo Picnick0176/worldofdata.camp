@@ -108,7 +108,6 @@ export default function RegisterComingSoon() {
               onChange={(e) => {
                 const onlyNumbers = e.target.value.replace(/[^0-9]/g, ""); 
                 setSearchQuery(onlyNumbers);
-                alert('กรุณากรอกเบอร์โทรที่ลงทะเบียนไว้')
               }}
               onKeyDown={handleKeyDown}
               placeholder="กรอกเบอร์มือถือ"
