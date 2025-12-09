@@ -270,7 +270,7 @@ export default function Register() {
                   id="file-upload-1"
                   onChange={(e) => setFile1(e.target.files?.[0])}
                   className="hidden"
-                  accept=".pdf,.jpg,.jpeg,.png"
+                  accept=".pdf,.jpg,.jpeg,.png,.gif,.heic,.heif,.webp,image/*"
                 />
                 <label
                   htmlFor="file-upload-1"
@@ -302,7 +302,7 @@ export default function Register() {
                   id="file-upload-2"
                   onChange={(e) => setFile2(e.target.files?.[0])}
                   className="hidden"
-                  accept=".pdf,.jpg,.jpeg,.png"
+                  accept=".pdf,.jpg,.jpeg,.png,.gif,.heic,.heif,.webp,image/*"
                 />
                 <label
                   htmlFor="file-upload-2"
