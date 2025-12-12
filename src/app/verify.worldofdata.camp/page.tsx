@@ -93,12 +93,12 @@ export default function Register() {
       return;
     }
 
-    const now = new Date();
-    const deadline = new Date("2025-12-23:59:00+07:00");
-    if (now > deadline) {
-      setError("ขออภัย!!! หมดเวลาการส่งฟอร์มแล้ว (หลัง 12 ธ.ค. เวลา 23:59 น.)");
-      return;
-    }
+    // const now = new Date();
+    // const deadline = new Date("2025-12-23:59:00+07:00");
+    // if (now > deadline) {
+    //   setError("ขออภัย!!! หมดเวลาการส่งฟอร์มแล้ว (หลัง 12 ธ.ค. เวลา 23:59 น.)");
+    //   return;
+    // }
 
     setIsSubmitting(true);
 
